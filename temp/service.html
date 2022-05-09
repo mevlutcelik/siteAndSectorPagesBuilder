@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr-TR" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="all">
+    <meta name="description" content="{sectorDesc}" />
+    <title>{sectorTitle}</title>
+    <link href="/../check-icon.png" rel="icon">
+    <link href="/../check-icon.png" rel="apple-touch-icon">
+	<meta http-equiv="cache-control" content="no-cache"/>
+    {rootColor}
+    <style>
+        *{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:system-ui, sans-serif;line-height:1.5;-webkit-tap-highlight-color:transparent}html{overflow:hidden}body{background:-webkit-gradient(linear, left bottom, left top, from(#000), color-stop(40%, var(--gradient-dark, #002405)), to(var(--gradient-primary, #003c08)));background:linear-gradient(0deg, #000 0%, var(--gradient-dark, #002405) 40%, var(--gradient-primary, #003c08) 100%);width:100vw;height:100vh;height:calc(var(--vh, 1vh) * 100);overflow:hidden}::-webkit-scrollbar{width:4px;height:4px;background:#212529}::-webkit-scrollbar-track{background:#212529}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.7)}::-webkit-scrollbar-thumb:hover{background:#fff}iframe{max-height:38rem;width:100%;height:calc((var(--vh, 1vh) * 100) - 6rem);border-radius:0.5rem}::-webkit-input-placeholder{color:rgba(255,255,255,0.5)}:-ms-input-placeholder{color:rgba(255,255,255,0.5)}::-ms-input-placeholder{color:rgba(255,255,255,0.5)}::placeholder{color:rgba(255,255,255,0.5)}.modal{display:none;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:fixed;z-index:2;left:0;top:0;width:100%;height:calc((var(--vh, 1vh) * 100));overflow:auto;background-color:#000;background-color:rgba(0,0,0,0.8)}.modal .modal-content{background-color:#212529;border:1px solid rgba(0,0,0,0.1);width:100%;max-width:38rem;height:calc((var(--vh, 1vh) * 100) - 4rem);max-height:38rem;border-radius:0.5rem;position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.modal #closeModal{position:absolute;right:-1.5rem;top:0.5rem;background-color:#212529}ul li{margin:1rem 0 1rem 1rem}ul li::marker{color:rgba(255,255,255,0.2)}#overlay{width:100vw;height:100vh;background-color:rgba(0,0,0,0.8);position:fixed;top:0;left:0;z-index:2;display:none}details summary::marker{color:rgba(255,255,255,0.2)}.breadcrumb{background-color:rgba(255,255,255,0.1);border-radius:0.25rem;padding:0.5rem;margin:1rem 0 0.5rem;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.breadcrumb span+span::before{content:"\003E";color:rgba(255,255,255,0.35);padding:0.5rem;font-size:0.75rem;font-weight:bold}.breadcrumb a{margin-right:0.5rem}.breadcrumb a:last-child{margin-right:0}.breadcrumb .active{color:rgba(255,255,255,0.5);cursor:text;-webkit-user-select:initial;-moz-user-select:initial;-ms-user-select:initial;user-select:initial}.left-bar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:16rem;height:100vh;height:calc(var(--vh, 1vh) * 100);position:fixed;top:0;left:0;right:initial;background-color:#212529;z-index:2;display:none}.left-bar.active{display:-webkit-box;display:-ms-flexbox;display:flex}.left-bar #closeBtn{position:absolute;right:0;top:1rem}.left-bar nav{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:100%;padding:2rem;overflow-y:auto;overflow-x:hidden}.left-bar nav a{padding:1rem 0 2rem;height:2.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}.left-bar nav a.active{color:var(--primary, #3ab54a);font-weight:bold}.left-bar nav a:hover:not(.active){color:#b1b1b1}header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}header nav{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;width:100%;height:4rem;padding:0 4rem}header nav .links{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}header nav .links a.cta{background-color:rgba(255,255,255,0.2);color:#fff;height:2.5rem;padding:0 1rem;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:1rem;font-weight:500;border-radius:4px;-webkit-box-shadow:rgba(50,50,93,0.25) 0px 13px 27px -5px,rgba(0,0,0,0.3) 0px 8px 16px -8px;box-shadow:rgba(50,50,93,0.25) 0px 13px 27px -5px,rgba(0,0,0,0.3) 0px 8px 16px -8px}header nav .links a.cta:hover{color:#fff;background-color:var(--primary-hover, #158123)}header nav .links a:hover{color:var(--primary-hover, #158123)}header nav .links a:last-child{margin-right:0}.star{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:1rem}.star svg{fill:#ffc107}.star .derege{margin-left:0.5rem;background-color:rgba(255,255,255,0.2);padding:2px 6px;font-weight:bold;border-radius:4px;font-size:0.75rem}#telBtn{height:6rem;margin:0 1rem}main{height:calc(100vh - 4rem);height:calc((var(--vh, 1vh) * 100) - 4rem);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;color:#fff;-webkit-transition:all 0.3s;transition:all 0.3s}main h1{font-size:3rem;text-align:left;font-weight:bold;line-height:1.25;-webkit-transition:all 0.3s;transition:all 0.3s}main p{margin-top:1rem;color:rgba(255,255,255,0.7);-webkit-transition:all 0.3s;transition:all 0.3s}main .buttons{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}main .buttons a,main .buttons button{background-color:#3ab54a;border:1px solid #3ab54a;color:#fff;text-decoration:none;font-size:22px;font-weight:500;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:0 1rem;border-radius:4px}main .buttons a span,main .buttons button span{text-shadow:0 0 2px #000}main .buttons a .phone,main .buttons button .phone{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}main .buttons a .phone::before,main .buttons button .phone::before{content:"|";font-size:1rem;margin-left:4px;margin-right:12px}main .buttons a .text,main .buttons button .text{width:13.5rem;text-align:right;font-size:16px;text-shadow:0 0 2px #000}main .buttons a div.flex,main .buttons button div.flex{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}main .buttons a svg,main .buttons button svg{margin-right:1rem;-webkit-filter:drop-shadow(0 0 2px rgba(0,0,0,0.5));filter:drop-shadow(0 0 2px rgba(0,0,0,0.5))}main .buttons a:hover,main .buttons button:hover{background-color:#158123;border-color:#158123;color:#fff}.mb-3{margin-bottom:1rem !important}.align-items-center{-webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important}.justify-content-evenly{-webkit-box-pack:space-evenly !important;-ms-flex-pack:space-evenly !important;justify-content:space-evenly !important}.position-relative{position:relative !important}.d-flex{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important}.btn-success{color:#fff;background-color:#3ab54a;border-color:#3ab54a}.btn{display:inline-block;font-weight:400;line-height:1.5;color:#212529;text-align:center;text-decoration:none;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:transparent;border:1px solid transparent;padding:0.375rem 0.75rem;font-size:1rem;border-radius:0.25rem;-webkit-transition:color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;transition:color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;transition:color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;transition:color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out}.stretched-link::after{position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;content:""}.text-white{color:#fff !important}.mx-2{margin-right:0.5rem !important;margin-left:0.5rem !important}.h-100{height:100% !important}.border-start{border-left:1px solid #dee2e6 !important}.font-size-22{font-size:22px}.line-height-90{line-height:90%}.align-items-end{-webkit-box-align:end !important;-ms-flex-align:end !important;align-items:flex-end !important}.flex-column{-webkit-box-orient:vertical !important;-webkit-box-direction:normal !important;-ms-flex-direction:column !important;flex-direction:column !important}.letter-spacing{letter-spacing:-1.2px}.text-shadow{text-shadow:0 0 2px black}.text-nowrap{white-space:nowrap !important}.fw-bold{font-weight:700 !important}.fw-light{font-weight:300 !important}.mb-0{margin-bottom:0 !important}.d-block{display:block !important}.h6,h6{font-size:1rem;line-height:1.2}.ps-2{padding-left:0.5rem !important}.border-start.h-100.mx-2.mx-sm-3::before{content:"";display:block;width:2px;background-color:rgba(255,255,255,0.2);margin-right:2.5rem;margin-left:1.5rem;margin:1rem 2.5rem 1rem 1.5rem;height:4rem}.menu{width:2.5rem;height:2.5rem;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-radius:50%}.menu:hover{background-color:rgba(255,255,255,0.15)}.icons{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin:0}.icons .icons-item{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly;height:4rem;width:4rem;margin:0 0.25rem 0.75rem 0}.icons .icons-item svg{fill:#3ab54a;height:2rem;width:auto}.icons .icons-item .icon-text{text-align:center;font-size:0.75rem;font-weight:bold}button,a{background:initial;border:0;color:#fff;margin-right:2rem;text-decoration:none;font-size:1rem;font-weight:500;-webkit-transition:all 0.3s;transition:all 0.3s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer}button svg path,a svg path{stroke:#fff}button svg.dark path,a svg.dark path{stroke:#000}.location{background-color:#ffc107;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0.25rem;font-size:0.75rem;color:#000;border-radius:4px;margin:0 1rem}.location svg{height:1rem;fill:#000;width:auto;margin-right:0.5rem}.location div{margin-left:0.25rem}@media all and (max-width: 480px){header nav{padding:0 1rem}.location{margin:1rem 1rem 0}main{width:initial;margin:0}main h1{margin-top:-6rem;font-size:2rem;text-align:center;padding:0 0.5rem}main p{padding:0 0.5rem;text-align:center}main .buttons{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%}main .buttons a,main .buttons button{position:absolute !important;bottom:0.25rem !important;width:calc(100% - (1rem * 2)) !important;-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important}main .icons{margin-top:1rem}main .border-start.h-100.mx-2.mx-sm-3::before{margin:1rem 0.5rem}}@media all and (max-width: 340px){main .buttons a span.text,main .buttons button span.text{display:none}}@media all and (max-width: 368px){.icons-item{width:6rem !important}}@media all and (max-width: 400px){.icons-item{width:7rem !important}}@media all and (min-width: 394px) and (max-width: 440px){.icons-item{width:8rem !important}}@media all and (max-height: 580px){#telBtn{height:4rem}#telBtn .border-start.h-100.mx-2.mx-sm-3::before{height:2rem}}@media all and (min-width: 481px){header nav{padding:0 1rem}h1{margin-top:-6rem}.star{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.location{margin:2rem 1rem 0}main{width:initial;margin:0}main h1{font-size:2rem;text-align:center;padding:0 1rem}main .star{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}main p{padding:0 0.5rem;text-align:center}main .buttons{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%}main .buttons a,main .buttons button{position:absolute !important;bottom:0.5rem !important;width:calc(100% - (1rem * 2)) !important;-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important}main .icons{margin-top:2rem}}@media all and (min-width: 540px){header nav{padding:0 1rem}div{margin-right:4px}div:last-child{margin-right:0}main{width:initial;margin:0 1.5rem}main h1{font-size:2rem;padding:0 0.5rem}main p{padding:0 0.5rem}main .buttons{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%}main .buttons a,main .buttons button{position:absolute !important;bottom:0.5rem !important;width:calc(100% - (1.5rem * 2)) !important;-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important}}@media all and (min-width: 768px){header nav{padding:0 4rem}main{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.location{width:-webkit-max-content;width:-moz-max-content;width:max-content}#telBtn svg{margin-left:0 !important}#telBtn .border-start.h-100.mx-2.mx-sm-3::before{margin:1rem 0.5rem}#telBtn .d-block.text-shadow.h6.mb-0.fw-light .ps-2{margin-right:3rem !important}main h1{font-size:3rem;text-align:center;padding:0;margin-top:0}main .star{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}main p{text-align:center;padding:0}main .buttons{display:-webkit-box;display:-ms-flexbox;display:flex;width:initial;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}main .buttons a,main .buttons button{position:relative !important;bottom:initial !important;width:auto !important;-webkit-box-pack:initial !important;-ms-flex-pack:initial !important;justify-content:initial !important}main .icons,main .icons-item{-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important}main .icons{margin-top:2rem;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}main .icons-item{margin:0 2.5rem 2.5rem 0 !important;width:initial !important;height:initial !important}}
+    </style>
+    {rootMenuPosition}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{_SCRIPT_BREADCRUMB_}]
+        }
+        </script>
+    {conversionTrackingCode}
+    {conversionTriggerCode}
+    {analyticsCode}
+</head>
+
+<body>
+    <div id="preloader-custom"></div>
+    <div id="overlay"></div>
+    <div class="modal">
+        <div class="modal-content">
+            <button id="closeModal" class="menu" aria-label="Close Btn Menu" aria-hidden="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+                    <path fill-rule="evenodd"
+                        d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+                </svg>
+            </button>
+            <div id="iframeContent"></div>
+        </div>
+    </div>
+    <div class="left-bar">
+        <button id="closeBtn" class="menu" aria-label="Close Btn Menu" aria-hidden="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+                <path fill-rule="evenodd"
+                    d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+            </svg>
+        </button>
+        <nav>
+            <a href="/">Anasayfa</a>
+            <a href="/about.html">Hakkımızda</a>
+            <a href="/contact.html">İletişim</a>
+            <a href="/privacy-policy.html">Gizlilik Politikası</a>
+            <a href="/cookie-policy.html">Çerez Politikası</a>
+            <br><br><br>
+            {navLinks}
+            <br><br><br>
+            {refLinks}
+        </nav>
+    </div>
+    <header>
+        <nav>
+            <button id="sideBarBtn" class="menu" aria-label="Left Bar Btn Menu" aria-hidden="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+            <div class="links">
+                <div class="blobs-container">
+                    <a href="#!" id="openModal" class="cta blob blue">
+                        <div>{ctaText}</div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 class="text-shadow">{sectorName}</h1>
+        <div class="breadcrumb">
+            {breadcrumb}
+        </div>
+        <div class="star">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+            <div class="derege">4.9</div>
+        </div>
+        <p>{sectorDesc}</p>
+        <div class="icons">
+            <div class="icons-item" style="">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="122.879px" height="103.461px"
+                    viewBox="0 0 122.879 103.461" enable-background="new 0 0 122.879 103.461" xml:space="preserve">
+                    <g>
+                        <path
+                            d="M85.275,18.308c9.75,1.166,18.492,5.614,25.09,12.21c7.732,7.732,12.514,18.415,12.514,30.212 c0,11.799-4.781,22.482-12.514,30.215s-18.416,12.516-30.215,12.516s-22.48-4.783-30.213-12.516S37.422,72.529,37.422,60.73 c0-11.798,4.783-22.48,12.515-30.212c7.083-7.083,16.643-11.691,27.266-12.415v-7.167c0-0.109,0.006-0.216,0.014-0.323h-8.004 c-1.313,0-2.385-1.074-2.385-2.386V2.386C66.828,1.074,67.9,0,69.213,0h24.053c1.313,0,2.387,1.074,2.387,2.386v5.841 c0,1.313-1.074,2.386-2.387,2.386h-8.004c0.01,0.106,0.014,0.214,0.014,0.323V18.308L85.275,18.308z M83.582,54.348 c2.271,1.223,3.814,3.623,3.814,6.383c0,4.002-3.244,7.248-7.246,7.248s-7.246-3.246-7.246-7.248c0-2.76,1.545-5.16,3.816-6.383 V37.744c0-1.895,1.535-3.431,3.43-3.431s3.432,1.536,3.432,3.431V54.348L83.582,54.348z M10.527,84.598 c-1.895,0-3.431-1.537-3.431-3.432s1.536-3.43,3.431-3.43h19.378c1.895,0,3.43,1.535,3.43,3.43s-1.536,3.432-3.43,3.432H10.527 L10.527,84.598z M3.43,64.424c-1.895,0-3.43-1.535-3.43-3.43s1.536-3.432,3.43-3.432h22.447c1.894,0,3.43,1.537,3.43,3.432 s-1.536,3.43-3.43,3.43H3.43L3.43,64.424z M10.354,44.774c-1.895,0-3.43-1.536-3.43-3.43s1.536-3.431,3.43-3.431h19.229 c1.895,0,3.431,1.536,3.431,3.431s-1.536,3.43-3.431,3.43H10.354L10.354,44.774z M118.527,31.215 c1.658-3.958,1.461-8.104-0.912-10.882c-2.848-3.333-7.996-3.715-12.777-1.37C109.902,22.436,114.5,26.476,118.527,31.215 L118.527,31.215z M41.775,31.215c-1.659-3.958-1.462-8.104,0.911-10.882c2.848-3.333,7.996-3.715,12.777-1.37 C50.4,22.436,45.801,26.476,41.775,31.215L41.775,31.215z M105.514,35.369c-6.49-6.491-15.457-10.505-25.363-10.505 c-9.904,0-18.872,4.015-25.362,10.505c-6.491,6.49-10.505,15.458-10.505,25.362c0,9.906,4.015,18.873,10.505,25.363 S70.246,96.6,80.15,96.6c9.906,0,18.873-4.016,25.363-10.506S116.02,70.637,116.02,60.73 C116.02,50.826,112.004,41.859,105.514,35.369L105.514,35.369z" />
+                    </g>
+                </svg>
+                <div class="icon-text">20 Dakika</div>
+            </div>
+            <div class="icons-item" style="width: 6rem;">
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106.11 122.88">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill-rule: evenodd;
+                            }
+                        </style>
+                    </defs>
+                    <title>secure</title>
+                    <path class="cls-1"
+                        d="M56.36,2.44A104.34,104.34,0,0,0,79.77,13.9a48.25,48.25,0,0,0,19.08,2.57l6.71-.61.33,6.74c1.23,24.79-2.77,46.33-11.16,63.32C86,103.6,72.58,116.37,55.35,122.85l-4.48,0c-16.84-6.15-30.16-18.57-39-36.47C3.62,69.58-.61,47.88.07,22l.18-6.65,6.61.34A64.65,64.65,0,0,0,28.23,13.5,60.59,60.59,0,0,0,48.92,2.79L52.51,0l3.85,2.44ZM52.93,19.3C66.46,27.88,78.68,31.94,89.17,31,91,68,77.32,96.28,53.07,105.41c-23.43-8.55-37.28-35.85-36.25-75,12.31.65,24.4-2,36.11-11.11ZM45.51,61.61a28.89,28.89,0,0,1,2.64,2.56,104.48,104.48,0,0,1,8.27-11.51c8.24-9.95,5.78-9.3,17.21-9.3L72,45.12a135.91,135.91,0,0,0-11.8,15.3,163.85,163.85,0,0,0-10.76,17.9l-1,1.91-.91-1.94a47.17,47.17,0,0,0-6.09-9.87,33.4,33.4,0,0,0-7.75-7.12c1.49-4.89,8.59-2.38,11.77.31Zm7.38-53.7c17.38,11,33.07,16.22,46.55,15,2.35,47.59-15.23,82.17-46.37,93.9C23,105.82,5.21,72.45,6.53,22.18,22.34,23,37.86,19.59,52.89,7.91Z" />
+                </svg>
+                <div class="icon-text">%100 Güvenilir</div>
+            </div>
+            <div class="icons-item" style="width: 6rem;">
+
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 118.21">
+                    <title>24-hours-phone-support</title>
+                    <path
+                        d="M45.34,6.14a4,4,0,0,0,3.23,7.24,67.7,67.7,0,0,1,7.19-3.1c4.54-1.51,3-8.5-2-7.67a44.76,44.76,0,0,0-8.4,3.53Zm7.34,52.75V52.68L62,43.16a18.79,18.79,0,0,0,1.49-1.65,7.68,7.68,0,0,0,1-1.49,3.46,3.46,0,0,0,.34-1.5,2.67,2.67,0,0,0-.32-1.39,1.79,1.79,0,0,0-1-.78,5.09,5.09,0,0,0-1.71-.24H53.16V29.9c1.32-.3,2.79-.57,4.42-.83a37.53,37.53,0,0,1,5.66-.38,13.09,13.09,0,0,1,5.58,1,5.76,5.76,0,0,1,2.91,2.86,11.06,11.06,0,0,1,.86,4.63,11.53,11.53,0,0,1-.52,3.59,11.3,11.3,0,0,1-1.51,3,21.45,21.45,0,0,1-2.4,2.82L63,51.87H73.4v7Zm36,0V53.36H76.24l-1.37-3.43,8.67-21h8L84.19,46.75H88.7V42.31l1.49-3.87h6.33v8.31h2.42v5.4l-2.42,1.21v5.53ZM29.91,54.57A90.17,90.17,0,0,0,43.23,73.24,76,76,0,0,0,64.35,88.82a2.13,2.13,0,0,0,1.82.09,7.76,7.76,0,0,0,2.54-1.85A28.38,28.38,0,0,0,71,84.22c3.39-4.46,7.59-10,13.52-7.23l.36.19,19.77,11.37.2.13a8.94,8.94,0,0,1,3.71,7.7,20.84,20.84,0,0,1-2.89,9.8,20.15,20.15,0,0,1-9.52,8.41,43.45,43.45,0,0,1-11.73,3.19,39.68,39.68,0,0,1-17.92-1.5,79.12,79.12,0,0,1-18-8.7l-.45-.29c-2.94-1.82-6.1-3.78-9.19-6.09-11.38-8.57-22.94-21-30.47-34.57C2.08,55.19-1.37,42.84.52,31.08c1-6.45,3.81-12.32,8.63-16.2,4.2-3.39,9.87-5.24,17.21-4.59a2.46,2.46,0,0,1,2,1.27L41,33a6.7,6.7,0,0,1,1.07,7.17,14.09,14.09,0,0,1-4.85,5.44c-.69.59-1.5,1.17-2.35,1.79-2.83,2.05-6.06,4.43-4.95,7.24l0-.07Zm78.77,21.65A4,4,0,0,0,115,80.94a4.54,4.54,0,0,0,.52-.7,45.31,45.31,0,0,0,3.56-7.95,4,4,0,0,0-7.1-3.46,4.31,4.31,0,0,0-.4.84,38.33,38.33,0,0,1-2.91,6.55Zm6.15-21.07a4,4,0,0,0,7.77,1.49,4.24,4.24,0,0,0,.15-.79,50.62,50.62,0,0,0-.12-8.7,4,4,0,0,0-7.81-.58,4.42,4.42,0,0,0-.1,1.41,40.94,40.94,0,0,1,.11,7.17Zm-3.92-21.22a4,4,0,0,0,7.24-3.28,51.17,51.17,0,0,0-4.21-7.51,4,4,0,1,0-6.58,4.46,43.63,43.63,0,0,1,3.55,6.33ZM97.36,17.07c4.17,3.05,9-3,4.78-6.35a53.9,53.9,0,0,0-7.27-4.59C90.79,4,86.82,9.57,90.49,12.71a4.16,4.16,0,0,0,.71.47,45.31,45.31,0,0,1,6.16,3.89Zm-20-8.52A4,4,0,0,0,79.7,1a4.08,4.08,0,0,0-1-.31A57,57,0,0,0,70.11,0a4,4,0,1,0,0,8,49.17,49.17,0,0,1,7.27.6Z" />
+                </svg>
+                <div class="icon-text">7/24 Hizmet</div>
+            </div>
+            <div class="icons-item" style="width: 6rem;">
+                <?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 95.57"
+                    style="enable-background:new 0 0 122.88 95.57" xml:space="preserve">
+                    <g>
+                        <path class="st0"
+                            d="M5.73,0h111.43c1.58,0,3.01,0.64,4.05,1.68c1.04,1.04,1.68,2.47,1.68,4.05V77c0,1.58-0.64,3.01-1.68,4.05 c-1.04,1.04-2.47,1.68-4.05,1.68h-2.38l-5.01-9.66c0.28-0.85,0.47-1.69,0.6-2.52l0.08-0.53c0.56-0.63,1.11-1.36,1.63-2.21 c0.09-0.15,0.18-0.3,0.27-0.46c0.88-1.58,1.46-3.24,1.74-5.02c0.02-0.11,0.03-0.23,0.05-0.34l2.52-2.52V23.25L99.63,6.23H23.25 L6.23,23.25v36.22l17.02,17.02H60.5l-3.08,5.95c-0.05,0.09-0.1,0.19-0.15,0.28H5.73c-1.58,0-3.01-0.64-4.05-1.68 C0.64,80.01,0,78.58,0,77V5.73c0-1.58,0.64-3.01,1.68-4.05C2.72,0.64,4.15,0,5.73,0L5.73,0z M86.02,41.37 c0.54-0.03,1.02,0.06,1.47,0.21c0.44,0.15,0.84,0.38,1.26,0.63c0.42,0.27,0.86,0.63,1.32,1.04l0.03,0.03 c0.58,0.5,1.23,1.05,1.95,1.46c0.59,0.33,1.46,0.36,2.38,0.41c1.73,0.06,3.61,0.14,4.85,1.98l0,0c1.07,1.61,1.16,2.82,1.23,4.04 l0.02,0.13c0.03,0.59,0.1,1.14,0.31,1.74c0.21,0.62,0.57,1.28,1.17,2.09l0,0c1.13,1.49,1.8,2.75,2.06,3.91 c0.27,1.22,0.09,2.31-0.53,3.43l-0.02,0.03c-0.46,0.8-1.14,1.38-1.73,1.88c-0.44,0.38-0.83,0.71-0.95,0.98 c-0.32,0.74-0.33,1.41-0.33,2.12c-0.02,0.96-0.03,1.95-0.66,3.22l-0.01,0.03c-0.41,0.78-0.92,1.44-1.53,1.97 c-0.63,0.54-1.37,0.95-2.21,1.22c-0.75,0.24-1.44,0.2-2.12,0.15c-0.56-0.04-1.07-0.07-1.46,0.09l-0.05,0.01 c-0.81,0.35-1.55,0.95-2.25,1.5c-0.78,0.63-1.52,1.22-2.36,1.49l0,0c-0.62,0.2-1.23,0.29-1.85,0.29c-0.62,0-1.23-0.09-1.85-0.29 l-0.03-0.01c-0.83-0.26-1.56-0.86-2.34-1.49c-0.71-0.57-1.46-1.17-2.29-1.52c-0.39-0.17-0.9-0.12-1.46-0.09 c-0.66,0.04-1.37,0.09-2.13-0.15l-0.04-0.02c-0.83-0.27-1.55-0.67-2.18-1.2c-0.62-0.54-1.14-1.2-1.53-2 c-0.63-1.26-0.64-2.25-0.66-3.21c-0.02-0.71-0.02-1.38-0.33-2.12l-0.01-0.01c-0.13-0.29-0.53-0.62-0.96-0.99 c-0.6-0.51-1.28-1.08-1.73-1.88l-0.03-0.05c-0.62-1.1-0.78-2.18-0.51-3.39c0.26-1.16,0.95-2.42,2.07-3.91 c0.62-0.8,0.96-1.47,1.17-2.09c0.21-0.6,0.29-1.17,0.32-1.76l0.02-0.12c0.07-1.22,0.17-2.46,1.23-4.04l0.03-0.03 c1.23-1.82,3.1-1.88,4.81-1.94c0.92-0.03,1.8-0.08,2.39-0.41l0.02-0.02c0.71-0.41,1.35-0.95,1.94-1.46 c0.47-0.41,0.9-0.78,1.35-1.05c0.41-0.27,0.83-0.48,1.26-0.63C85.01,41.43,85.49,41.36,86.02,41.37L86.02,41.37L86.02,41.37z M104.35,91.29l-4.52-0.81l-2.27,4.07c-0.01,0.03-0.03,0.06-0.06,0.08c-0.95,1.17-1.82,1.14-2.57,0.53c-0.81-0.66-1.35-2.07-1.7-3 L93.1,91.8l-4.79-9.05c-0.15-0.29-0.04-0.63,0.24-0.77c0.03-0.02,0.06-0.03,0.08-0.03c0.5-0.17,1.05-0.51,1.65-0.96 c0.63-0.47,1.29-1.05,1.97-1.65c0.12-0.11,0.27-0.17,0.44-0.15c1.29,0.03,2.55-0.08,3.68-0.45c1.11-0.38,2.13-1.04,3-2.15 c0.2-0.26,0.56-0.3,0.8-0.11c0.06,0.06,0.12,0.12,0.15,0.2l5.54,10.7l0.48,1.04c0.02,0.03,0.03,0.06,0.03,0.09 c0.22,0.8,0.27,1.49,0,2.01c-0.3,0.59-0.89,0.89-1.88,0.81C104.46,91.32,104.4,91.3,104.35,91.29L104.35,91.29L104.35,91.29z M72.24,90.48l-4.52,0.81c-0.04,0.01-0.09,0.01-0.15,0.01c-0.99,0.08-1.58-0.23-1.88-0.81c-0.27-0.51-0.23-1.2,0-2.01l0.03-0.09 l0.48-1.04l5.54-10.7c0.03-0.08,0.09-0.14,0.15-0.2c0.26-0.2,0.6-0.15,0.8,0.1c0.86,1.1,1.88,1.76,3.01,2.15 c1.14,0.39,2.39,0.48,3.68,0.45c0.15-0.01,0.3,0.03,0.44,0.15c0.68,0.6,1.34,1.19,1.97,1.65c0.6,0.45,1.16,0.8,1.65,0.96l0.07,0.03 c0.29,0.15,0.39,0.5,0.24,0.77l-4.79,9.04l-0.14,0.35c-0.34,0.93-0.88,2.34-1.7,3c-0.75,0.6-1.61,0.65-2.57-0.53 c-0.02-0.03-0.04-0.04-0.06-0.07L72.24,90.48L72.24,90.48L72.24,90.48z M93.02,52.4c-1.79-1.79-4.25-2.9-6.99-2.9 c-2.74,0-5.2,1.11-6.99,2.9c-1.79,1.79-2.9,4.25-2.9,6.99c0,2.73,1.11,5.2,2.9,6.99c1.79,1.79,4.25,2.9,6.99,2.9 c2.73,0,5.2-1.11,6.99-2.9c1.79-1.79,2.9-4.25,2.9-6.99C95.91,56.67,94.81,54.19,93.02,52.4L93.02,52.4L93.02,52.4z M31.02,51.16 c-0.4,0-0.76-0.25-1.02-0.64c-0.26-0.4-0.43-0.95-0.43-1.56c0-0.61,0.16-1.16,0.43-1.56c0.26-0.4,0.63-0.64,1.02-0.64h17.1 c0.4,0,0.76,0.25,1.02,0.64c0.26,0.4,0.42,0.95,0.42,1.56c0,0.61-0.16,1.17-0.42,1.56c-0.26,0.4-0.63,0.64-1.02,0.64H31.02 L31.02,51.16L31.02,51.16z M29.94,64.84c4.22-5.54,7.83-3.02,12.87,0.5c0.25,0.18,0.51,0.35,0.76,0.53 c0.72,0.5,1.48,0.41,2.24,0.04c0.82-0.41,1.65-1.14,2.47-1.87l0.02-0.01c0.74-0.65,1.46-1.29,2.24-1.78 c0.13-0.08,0.31-0.04,0.39,0.09l1.15,1.81c0.08,0.13,0.04,0.31-0.09,0.39c-0.6,0.38-1.25,0.96-1.91,1.54l-0.02,0.01 c-1.15,1.02-2.33,2.05-3.63,2.59c-1.34,0.55-2.79,0.55-4.4-0.57l-0.77-0.54c-1.94-1.36-3.6-2.51-5.1-2.88 c-1.43-0.34-2.74,0.07-4.06,1.8c-0.1,0.13-0.28,0.15-0.4,0.05L30,65.25C29.87,65.15,29.84,64.97,29.94,64.84L29.94,64.84 L29.94,64.84z M31.02,22.83c-0.4,0-0.77-0.25-1.03-0.64s-0.43-0.95-0.43-1.55c0-0.61,0.16-1.15,0.43-1.55 c0.26-0.4,0.63-0.64,1.03-0.64h41.35c0.4,0,0.77,0.25,1.03,0.64c0.26,0.4,0.42,0.95,0.42,1.55c0,0.61-0.16,1.15-0.42,1.55 c-0.26,0.4-0.63,0.65-1.03,0.65L31.02,22.83L31.02,22.83L31.02,22.83z M31.02,37.72c-0.4,0-0.76-0.25-1.02-0.65l0,0 c-0.26-0.4-0.43-0.95-0.43-1.55c0-0.61,0.16-1.15,0.43-1.56c0.26-0.4,0.63-0.64,1.03-0.64h33.05c0.4,0,0.76,0.25,1.02,0.64l0,0 c0.26,0.4,0.43,0.95,0.43,1.55c0,0.61-0.16,1.15-0.43,1.55l0,0c-0.26,0.4-0.63,0.64-1.02,0.64H31.02V37.72L31.02,37.72z" />
+                    </g>
+                </svg>
+                <div class="icon-text">1 Yıl Garanti</div>
+            </div>
+            <div class="icons-item">
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 92.65">
+                    <path
+                        d="M0 39.37h24.83v44.18H0V39.37zM81.73 0c12.2 0 22.11 9.89 22.11 22.11 0 12.2-9.89 22.11-22.11 22.11-12.2 0-22.11-9.89-22.11-22.11C59.63 9.91 69.52 0 81.73 0zm-1.87 10.81v2.94l6.35-2.02c.39-.12.35-.09.35.29v2.69c0 .26.05.28-.2.36l-6.51 2.07v1.54l6.71-2.13v3.39l-6.71 2.13v7.96c4.05.02 7.57-3.03 8.08-7.49.08-.66-.1-.72.58-.72h2.19c1.21 0 1.08.82 1.03 1.88-.18 3.86-3.64 8.12-8.64 9.59-2.04.6-4.17.53-6.28.5-1.13-.01-1.08-.05-1.08-1.17v-9.3l-3.33 1.11c-.7.23-.7.39-.7-.37v-2.22c0-.53-.08-.53.42-.7l3.62-1.2V18.4l-3.62 1.2c-.5.17-.41.16-.41-.36v-2.5c0-.47.01-.4.46-.55L75.73 15v-4.29c0-.31-.05-.31.26-.31h3.58c.38.01.29.05.29.41zM29.83 79.84V42.91h16.61c7.04 1.26 14.08 5.08 21.12 9.51h12.9c5.84.35 8.9 6.27 3.22 10.16-4.52 3.32-10.49 3.13-16.61 2.58-4.22-.21-4.4 5.46 0 5.48 1.53.12 3.19-.24 4.64-.24 7.64-.01 13.92-1.47 17.77-7.5l1.93-4.51 19.19-9.51c9.6-3.16 16.42 6.88 9.35 13.87-13.9 10.11-28.15 18.43-42.73 25.15-10.59 6.44-21.18 6.22-31.76 0l-15.63-8.06z"
+                        fill-rule="evenodd" clip-rule="evenodd" />
+                </svg>
+                <div class="icon-text">En Ucuz</div>
+            </div>
+        </div>
+        <div class="location">
+
+            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px"
+                viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+                <image id="image0" width="24" height="24" x="0" y="0" href="data:image/png;base64,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" />
+            </svg>
+
+            <div>Konumunuza</div>
+            <div style="font-weight: bold;">{KM} km</div>
+            <div>mesafedeyiz</div>
+        </div>
+        <div class="buttons">
+            <a id="telBtn" style="flex-direction: row;margin-top: 1rem;" data-tel="{phone}"
+                class="hg-plugin-call-button align-items-center btn btn-success justify-content-evenly d-flex mb-3 stretched-link position-relative"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-telephone-forward-fill" viewBox="0 0 16 16" style="margin-left: -1.5rem;">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z">
+                    </path>
+                </svg>
+                <div style="border: none !important;" class="border-start h-100 mx-2 mx-sm-3"></div> <span
+                    class="d-flex flex-column align-items-end line-height-90 font-size-22"
+                    style="justify-content: center !important;display: flex !important;"><span itemprop="telephone"
+                        class="text-nowrap text-shadow fw-bold letter-spacing">{formattedPhone}</span>
+                    <div class="d-block text-shadow h6 mb-0 fw-light"><span style="font-weight: 500;margin-right: 2rem;"
+                            class="ps-2">Hemen
+                            ara</span></div>
+                </span>
+            </a>
+        </div>
+    </main>
+    <script type="text/javascript">
+        function appHeight(){const e=document.documentElement;e.style.setProperty("--vh",.01*window.innerHeight+"px")}function openMenu(){menuOpen=!0,overlay.style.display="block",document.body.style.overflow="hidden",leftBar.classList.add("active")}function closeMenu(){menuOpen=!1,overlay.style.display="none",document.body.style.overflow="auto",leftBar.classList.remove("active")}window.addEventListener("resize",appHeight),appHeight();let modal=document.querySelector(".modal"),btnModal=document.querySelector("#openModal"),modalClose=document.querySelector("#closeModal"),iframeContent=document.querySelector("#iframeContent");btnModal.addEventListener("click",function(){iframeContent.innerHTML='<iframe src="https://www.lipyum.com/applications/form" frameborder="0"></iframe>',modal.style.display="flex"}),modalClose.addEventListener("click",function(){iframeContent.innerHTML=null,modal.style.display="none"}),window.onclick=function(e){e.target===modal&&(iframeContent.innerHTML=null,modal.style.display="none")};let closeBtn=document.querySelector("#closeBtn"),sideBarBtn=document.querySelector("#sideBarBtn"),overlay=document.querySelector("#overlay"),leftBar=document.querySelector(".left-bar"),menuOpen=!1;sideBarBtn.addEventListener("click",function(){menuOpen||openMenu()}),closeBtn.addEventListener("click",function(){menuOpen&&closeMenu()}),overlay.addEventListener("click",function(){menuOpen&&closeMenu()}),document.querySelector(".hg-plugin-call-button").addEventListener("click",function(e){e.preventDefault();let n=this.getAttribute("data-tel");"undefined"!=typeof gtag_report_conversion?gtag_report_conversion("tel:"+n):window.location.href="tel:"+n});
+    </script>
+</body>
+</html>

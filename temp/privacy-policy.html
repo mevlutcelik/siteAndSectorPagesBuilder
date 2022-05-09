@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="tr-TR" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="all">
+    <meta name="description" content="{homeDesc}" />
+    <title>{homeTitle}</title>
+    <link href="/check-icon.png" rel="icon">
+    <link href="/check-icon.png" rel="apple-touch-icon">
+	<meta http-equiv="cache-control" content="no-cache"/>
+    {rootColor}
+    <style>
+        *{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:system-ui, sans-serif;line-height:1.5;-webkit-tap-highlight-color:transparent}html{overflow:hidden}body{background:-webkit-gradient(linear, left bottom, left top, from(#000), color-stop(40%, var(--gradient-dark, #002405)), to(var(--gradient-primary, #003c08)));background:linear-gradient(0deg, #000 0%, var(--gradient-dark, #002405) 40%, var(--gradient-primary, #003c08) 100%);width:100vw;height:100vh;height:calc(var(--vh, 1vh) * 100);overflow:hidden}::-webkit-scrollbar{width:4px;height:4px;background:#212529}::-webkit-scrollbar-track{background:#212529}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.7)}::-webkit-scrollbar-thumb:hover{background:#fff}iframe{max-height:38rem;width:100%;height:calc((var(--vh, 1vh) * 100) - 6rem);border-radius:0.5rem}::-webkit-input-placeholder{color:rgba(255,255,255,0.5)}:-ms-input-placeholder{color:rgba(255,255,255,0.5)}::-ms-input-placeholder{color:rgba(255,255,255,0.5)}::placeholder{color:rgba(255,255,255,0.5)}.modal{display:none;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:fixed;z-index:2;left:0;top:0;width:100%;height:calc((var(--vh, 1vh) * 100));overflow:auto;background-color:#000;background-color:rgba(0,0,0,0.8)}.modal .modal-content{background-color:#212529;border:1px solid rgba(0,0,0,0.1);width:100%;max-width:38rem;height:calc((var(--vh, 1vh) * 100) - 4rem);max-height:38rem;border-radius:0.5rem;position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.modal #closeModal{position:absolute;right:0.5rem;top:0.5rem;background-color:#212529}ul li{margin:1rem 0 1rem 1rem}ul li::marker{color:rgba(255,255,255,0.2)}#overlay{width:100vw;height:100vh;background-color:rgba(0,0,0,0.8);position:fixed;top:0;left:0;z-index:2;display:none}details summary::marker{color:rgba(255,255,255,0.2)}.left-bar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:16rem;height:100vh;height:calc(var(--vh, 1vh) * 100);position:fixed;top:0;right:initial;left:0;background-color:#212529;z-index:2;display:none}.left-bar.active{display:-webkit-box;display:-ms-flexbox;display:flex}.left-bar #closeBtn{position:absolute;right:0;top:1rem}.left-bar nav{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:100%;padding:2rem;overflow-y:auto;overflow-x:hidden}.left-bar nav a{padding:1rem 0 2rem;height:2.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}.left-bar nav a.active{color:var(--primary, #3ab54a);font-weight:bold}.left-bar nav a:hover:not(.active){color:#b1b1b1}header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}header nav{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;width:100%;height:4rem;padding:0 4rem}header nav .links{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}header nav .links a.cta{background-color:rgba(255,255,255,0.2);color:#fff;height:2.5rem;padding:0 1rem;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:1rem;font-weight:500;border-radius:4px;-webkit-box-shadow:rgba(50,50,93,0.25) 0px 13px 27px -5px,rgba(0,0,0,0.3) 0px 8px 16px -8px;box-shadow:rgba(50,50,93,0.25) 0px 13px 27px -5px,rgba(0,0,0,0.3) 0px 8px 16px -8px}header nav .links a.cta:hover{color:#fff;background-color:var(--primary-hover, #158123)}header nav .links a:hover{color:var(--primary-hover, #158123)}header nav .links a:last-child{margin-right:0}main{height:calc(100vh - 4rem);height:calc((var(--vh, 1vh) * 100) - 4rem);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;color:#fff;-webkit-transition:all 0.3s;transition:all 0.3s}main h1{font-size:3rem;text-align:left;font-weight:bold;line-height:1.25;-webkit-transition:all 0.3s;transition:all 0.3s}main p{margin-top:1rem;color:rgba(255,255,255,0.7);-webkit-transition:all 0.3s;transition:all 0.3s}.list{overflow:auto;display:-ms-grid;display:grid;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:1rem auto;background-color:rgba(255,255,255,0.15);border-radius:4px;max-height:30rem;padding:1rem}.list a{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;background-color:#fff;border-radius:4px;color:#000;-webkit-transition:all 0.3s;transition:all 0.3s;margin-bottom:1rem}.list a:active{-webkit-transform:scale(0.9);transform:scale(0.9)}.list a:last-child{margin-bottom:0}.menu{width:2.5rem;height:2.5rem;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-radius:50%}.menu:hover{background-color:rgba(255,255,255,0.15)}button,a{background:initial;border:0;color:#fff;text-decoration:none;font-size:1rem;font-weight:500;-webkit-transition:all 0.3s;transition:all 0.3s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer}@media all and (max-width: 480px){header nav{padding:0 1rem}.list{width:90%}.list a{height:2.5rem}iframe,.modal-content{max-height:44rem !important}main{width:initial}main h1{font-size:2rem;text-align:center;padding:0 0.5rem}main p{padding:0 0.5rem;text-align:center}}@media all and (min-width: 481px){header nav{padding:0 1rem}.list{width:90%}.list a{height:2.5rem}main{width:initial}main h1{font-size:2rem;text-align:center;padding:0 1rem}main p{padding:0 0.5rem;text-align:center}}@media all and (min-width: 540px){header nav{padding:0 1rem}.list{width:30rem}.list a{height:2.5rem}main{width:initial}main h1{font-size:2rem;padding:0 0.5rem}main p{padding:0 0.5rem}}@media all and (min-width: 768px){header nav{padding:0 4rem}main{padding:0 4rem}main h1{font-size:3rem;text-align:center;padding:0;margin-top:0}}
+    </style>
+    {rootMenuPosition}
+    {conversionTrackingCode}
+    {conversionTriggerCode}
+    {analyticsCode}
+</head>
+
+<body>
+    <div id="preloader-custom"></div>
+    <div id="overlay"></div>
+    <div class="modal">
+        <div class="modal-content">
+            <button id="closeModal" class="menu" aria-label="Close Btn Menu" aria-hidden="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+                    <path fill-rule="evenodd"
+                        d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+                </svg>
+            </button>
+            <div id="iframeContent"></div>
+        </div>
+    </div>
+    <div class="left-bar">
+        <button id="closeBtn" class="menu" aria-label="Close Btn Menu" aria-hidden="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+                <path fill-rule="evenodd"
+                    d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+            </svg>
+        </button>
+        <nav>
+            {navLinks}
+            {refLinks}
+        </nav>
+    </div>
+    <header>
+        <nav>
+            <button id="sideBarBtn" class="menu" aria-label="Left Bar Btn Menu" aria-hidden="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+            <div class="links">
+                <div class="blobs-container">
+                    <a href="#!" id="openModal" class="cta blob blue">
+                        <div>{ctaText}</div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <style>.list p{padding: 0;text-align: left;margin-bottom: 1rem;}.list a{width: initial;background-color: initial;color: #fff;text-decoration: underline;}</style>
+        <h1 class="text-shadow">Gizlilik Politikası</h1>
+        <div class="list">
+            1. Bu beyan {siteName}’un gizlilik politikasını ve Kişisel Verilerin Korunmasına ilişkin yasal aydınlatma yükümlülüğünü içerir. {siteName}, siteyi ziyaret eden kullanıcıların, bireysel ve kurumsal anlamda gizliliğini korumak ve sitede sunulan tüm hizmetlerden en iyi şekilde faydalanmasının sağlanabilmesi amacıyla; bilgi ve veri güvenliği için çeşitli ilkeler benimsemiştir. Bu gizlilik ilkeleri; {siteName} ve bağlı tüm siteler, mobil uygulamaları ve tüm alt hizmetler üzerinde veri toplanması ve/veya kullanımı konusunda uygulanmak üzere belirlenmiş ve beyan edilmektedir. {siteName} ve mobil uygulamalarını kullanmakla bu ilkelerin tümü Kullanıcılar tarafından kabul edilmiş addolunur.<br><br><br>
+            2. {siteName}, üyelik aşamasında ve daha sonrasında sizden bazı kişisel bilgilerinizi talep eder. Kişisel bilgilerinizin korunması ve gizliliğinizin sürdürülebilmesi {siteName} ekibi olarak birinci önceliğimizdir. Bu nedenle vermiş olduğunuz bilgiler Kullanıcı Sözleşmesi’nde belirtilen kurallar ve amaçlar dışında herhangi bir kapsamda kullanılmayacak, üçüncü şahıslarla paylaşılmayacaktır.<br><br><br>
+3. {siteName} için kullanıcılarının güvenliği ve gizliliği en ön planda tutulmaktadır. Kullanıcıların sisteme girmiş olduğu bilgiler, gizlilik ve güven içinde, ayrıca bu verilerin kritik olduğunun bilincinde olarak, en güncel ve en gelişmiş güvenlik teknolojileri kullanılarak korunmaktadır. Ayrıca, sektörel gelişmeler ve veri güvenliği alanındaki gelişen tehlikeler, sürekli olarak takip edilerek ve düzenli testler yürütülerek olası saldırılara ve veri hırsızlığı teşebbüslerine karşı en yüksek düzeyde koruma sağlanmaktadır.<br><br><br>
+4. Kullanıcıların, sistemdeki hesaplarına erişim SSL (Secure Socket Layer) teknolojisi kullanılarak üçüncü kişilerden saklanır. SSL teknolojisi, sunucu ile kullanıcının internet tarayıcısı arasında, kimlik doğrulama ve bağlantı şifreleme gibi iki temel görev üstlenir.<br><br><br>
+5. {siteName}, kullanıcının isteği dışında ticari iletişim faaliyeti yapmamayı, izin alınmaksızın pazarlama yapmamayı, kullanıcının sistemden ücretsiz ve kolayca çıkabilmesini sağlayacak araçlar sunmayı beyan ve taahhüt eder.<br><br><br>
+6. Sistemle ilgili sorunların tespiti ve söz konusu sorunların en hızlı şekilde giderilebilmesi için, {siteName}, gerektiğinde kullanıcıların IP adresini tespit etmekte ve bunu kullanmaktadır. IP adresleri, kullanıcıları genel bir şekilde tanımlamak ve kapsamlı demografik bilgi toplamak amacıyla da kullanılabilir.<br><br><br>
+7. {siteName} ‘un 5651 sayılı yasada ve bağlı yönetmeliklerde belirtilen trafik verisi saklama yükümlülükleri ile 213 sayılı Vergi Usul Kanunu ve bağlı yönetmeliklerde belirtilen işlem verisi saklama yükümlülükleri ayrıca saklıdır.<br><br><br>
+8. {siteName}, sağladığı hizmet içerisinden ve mobil uygulamalarından başkaca sitelere link (bağlantı) sağlayabilir. Anlaşmalı olduğu 3. Partilerin reklamlarını, başvuru formlarını, duyurularını, anketlerini yayınlayabilir. {siteName}, Kullanıcıları bu formlar, duyurular, anketler ve reklamlar aracılığıyla reklamveren veya anlaşmalı 3. partilerin sitelerine / hizmetlerine / mobil uygulamalarına yönlendirebilir. {siteName}, bu link (bağlantı) yoluyla erişilen diğer sitelerin ve/veya mobil uygulamaların gizlilik uygulama ve politikalarına, ayrıca barındırdıkları görsel, metinsel her tür içeriklerine ilişkin olarak hiç bir sorumluluk taşımamaktadır.<br><br><br>
+9. Kullanıcılar, site üzerinden bağlantı sağlanan üçüncü kişi ve kurumlara ait sitelerde bulunan hesaplarının gizlilik ve güvenliğinden kendisi sorumludur. Bu üçüncü tarafların gizlilik politikasından {siteName} sorumlu tutulamaz.<br><br><br>
+10. Kullanıcılar, site üzerindeki hesap ve şifrelerinin güvenliğinden ve gizliliğinden kendisi sorumludur. Sitenin kullanımı sırasında veya hizmet alımı sırasında herhangi bir verinin yedeklenmemesinden, zarar görmesinden veya herhangi bir kişisel verinin zarar görmesinden doğacak zararlardan {siteName} sorumlu değildir.<br><br><br>
+11. Kullanıcıya ait bireysel / kurumsal bilgiler, ad ve soy ad, adres, telefon numarası, elektronik posta adresi ve kullanıcıyı tanımlamaya yönelik diğer her türlü bilgi olarak anlaşılır. {siteName}, işbu gizlilik bildiriminde aksi belirtilmedikçe bireysel / kurumsal bilgilerden herhangi birini üçüncü kişilere hiç bir şekilde açıklamayacaktır. {siteName}, aşağıda sayılan hallerde ise işbu gizlilik bildirimi hükümleri dışına çıkarak kullanıcılara ait bilgileri üçüncü kişilere açıklayabilecektir. Bu durumlar;<br><br><br>
+11.1. Yürürlükte bulunan mevzuat ve iç hukukta da etkili uluslararası anlaşmalardaki yasal zorunluluklara uyulmasının gerektiği haller,<br><br><br>
+11.2. {siteName} ‘un kullanıcılarıyla arasındaki sözleşmelerin gereklerinin yerine getirilmesi ve bunların uygulamaya konulmalarıyla ilgili hallerde,<br><br><br>
+<br><br><br>
+11.3. Yetkili idari ve/veya adli makamlar tarafından usuli yöntemine uygun olarak yürütülen bir araştırma veya soruşturma doğrultusunda kullanıcılarla ilgili bilgi talep edilmesi hallerinde,<br><br><br>
+<br><br><br>
+11.4. Kullanıcıların haklarını veya güvenliklerini koruma amacıyla bilgi verilmesinin gerekli olduğu hallerde.<br><br><br>
+12. {siteName}, kendisine verilen gizli bilgileri kesinlikle özel ve gizli tutmayı, bunu bir sır olarak saklamayı yükümlülük olarak kabul ettiğini ve gizliliğin sağlanıp sürdürülmesi, gizli bilginin tamamının veya herhangi bir parçasının kamu alanına girmesini veya yetkisiz kullanımını veya üçüncü bir kişiye açıklanmasını önleme gereği olan gerekli tüm teknik, hukuki ve yönetimsel tedbirleri almayı ve üzerine düşen tüm özeni tam olarak göstermeyi işbu bildirimle taahhüt etmektedir.<br><br><br>
+13. Sitede ücretli olarak sunulan bir hizmetten faydalanılması durumunda veya sitede yayınlanan ilanlar üzerinden satın alma yapıldığı durumlarda, Kullanıcıların, Site üzerinden yaptıkları alışverişler sırasında ödeme kuruluşu veya ödeme aracısı üzerinden toplanan kredi kartı bilgileri, satın alınan ürün ve hizmetlerin faturalandırılması amacıyla kullanılabilmektedir.<br><br><br>
+14. Online olarak kredi kartı ile verilen siparişlerin ödeme/fatura/teslimat adresi bilgilerinin güvenilirliği {siteName} tarafından Kredi Kartları Dolandırıcılığı’na karşı denetlenmektedir. Bu sebeple, ilk defa sipariş veren bazı Kullanıcı’ların öncelikle finansal ve adres/telefon bilgilerinin doğruluğunun onaylanması gerekebilir. Bu bilgilerin kontrolü için gerekirse kredi kartı sahibi Kullanıcı ile veya ilgili banka ile irtibata geçilebilir.<br><br><br>
+15. {siteName} ‘un göndereceği e-postalarda, hiç bir şekilde kredi kartı numarası, kullanıcı adı, şifre veya parola talep etmez. E-postalarda yer alan veriler üçüncü şahıslar tarafından görülebilir. {siteName}, Kullanıcı e-postalarından aktarılan bilgilerin güvenliğini hiçbir koşulda garanti edemez.<br><br><br>
+16. {siteName}, kullanıcıların {siteName} ve mobil uygulamalardaki kullanım bilgilerini, teknik bir iletişim dosyası olan çerezler (Cookie) kullanarak, Uygulama kullanımı hakkındaki bilgileri IP ya da Sosyal Ağ hesabı kullanıcı verileri ile elde edebilir. Çerez denilen teknik iletişim dosyası, internet sitesini zamansal oranlamalı olarak kaç kişinin kullandığını, bir kişinin ilgili internet sitesini hangi amaçla, kaç kez ziyaret ettiği ve ne kadar kaldığı hakkında istatistiki bilgiler elde etmeye ve kullanıcılar için özel olarak tasarlanmış kullanıcı sayfalarından dinamik çeşitlilikle reklam ve içerik üretilmesine yardımcı olmak üzere tasarlanan ve kullanılan veri dosyasıdır. Kullanıcılar dilerlerse çerezlerin bilgisayarlarına yerleştirilmemesi veya bu türden bir dosyasının gönderildiğinde ikaz verilmesini sağlayacak biçimde tarayıcılarının ayarlarını her zaman değiştirebilirler.<br><br><br>
+17. {siteName} tarafından site ya da Uygulamalar içerisinde düzenlenebilecek periyodik veya periyodik olmayan anketlere cevap veren, veya yardım masasına (help desk) soru soran kullanıcılardan talep edilebilecek bilgiler de, {siteName} ve işbirliği içindeki kişi ya da kurumlar tarafından bu kullanıcılara doğrudan pazarlama yapmak, istatistiki analizler yapmak ve özel bir veri tabanı oluşturmak amacıyla da kullanılabilmektedir. Anketler veya yardım masası, anlaşma gereği 3. Partiler tarafından sunulan hizmetler olabilir.<br><br><br>
+18. 6698 sayılı Kişisel Verilerin İşlenmesi Hakkında Kanun uyarınca, elde edilen kişisel veriler {siteName} tarafından, hukuka ve dürüstlük kuralına uygun, güncel, meşru amaçlar için, ölçülü ve ilgili mevzuata uygun sürelerle işlenebilir.<br><br><br>
+19. Elde edilen kişisel veriler, yurtiçi veya yurtdışında {siteName} ‘un çalıştığı hizmet servis sağlayıcılarının tesisi bulunan başka bir ülkede ilgili mevzuat ve öngörülen güvenlik önlemleri dahilinde veriler aktarılabilir, depolanabilir, işlenebilir.<br><br><br>
+20. Kişisel veriler, (i) Kanunlarda açıkça öngörülmesi, (ii) Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması, (iii) Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması, (iv) İlgili kişinin kendisi tarafından alenileştirilmiş olması sebeplerinden biri veya birkaçı ile kişisel veri sahibinin rızası alınmaya gerek olmaksızın işlenebilir.<br><br><br>
+21. Kullanıcı, {siteName} ‘a başvurarak kendisiyle ilgili;<br><br><br>
+21.1. Kişisel veri işlenip işlenmediğini öğrenme, işlenmişse buna dair bilgi talebinde bulunma,<br><br><br>
+21.2. Kişisel verilerin işlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme,<br><br><br>
+21.3. Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme,<br><br><br>
+21.4. Kişisel verilerin eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme,<br><br><br>
+21.5. İlgili mevzuata göre kişisel verilerin silinmesini veya yok edilmesini isteme,<br><br><br>
+21.6. İlgili mevzuata göre düzeltme, silme ve yok edilme işlemlerinin, bu verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,<br><br><br>
+21.7. İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme,<br><br><br>
+21.8. Kişisel verilerin kanuna aykırı olarak işlenmesi nedeniyle zarara uğranması halinde zararın giderilmesini talep etme,<br><br><br>
+<br><br><br>
+Haklarına sahiptir.<br><br><br>
+        </div>
+    </main>
+    <script>
+        function appHeight(){const e=document.documentElement;e.style.setProperty("--vh",.01*window.innerHeight+"px")}function openMenu(){menuOpen=!0,overlay.style.display="block",document.body.style.overflow="hidden",leftBar.classList.add("active")}function closeMenu(){menuOpen=!1,overlay.style.display="none",document.body.style.overflow="auto",leftBar.classList.remove("active")}window.addEventListener("resize",appHeight),appHeight();let modal=document.querySelector(".modal"),btnModal=document.querySelector("#openModal"),modalClose=document.querySelector("#closeModal"),iframeContent=document.querySelector("#iframeContent");btnModal.addEventListener("click",function(){iframeContent.innerHTML='<iframe src="https://www.lipyum.com/applications/form" frameborder="0"></iframe>',modal.style.display="flex"}),modalClose.addEventListener("click",function(){iframeContent.innerHTML=null,modal.style.display="none"}),window.onclick=function(e){e.target===modal&&(iframeContent.innerHTML=null,modal.style.display="none")};let closeBtn=document.querySelector("#closeBtn"),sideBarBtn=document.querySelector("#sideBarBtn"),overlay=document.querySelector("#overlay"),leftBar=document.querySelector(".left-bar"),menuOpen=!1;sideBarBtn.addEventListener("click",function(){menuOpen||openMenu()}),closeBtn.addEventListener("click",function(){menuOpen&&closeMenu()}),overlay.addEventListener("click",function(){menuOpen&&closeMenu()});
+    </script>
+</body>
+
+</html>

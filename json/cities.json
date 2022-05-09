@@ -1,0 +1,731 @@
+[
+  {
+    "id": 1,
+    "name": "Adana",
+    "slug": "adana",
+    "population": 1768860,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:29.0",
+    "updated_at": "2022-02-25 09:01:29.0"
+  },
+  {
+    "id": 2,
+    "name": "Adıyaman",
+    "slug": "adiyaman",
+    "population": 308915,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:29.0",
+    "updated_at": "2022-02-25 09:01:29.0"
+  },
+  {
+    "id": 3,
+    "name": "Afyonkarahisar",
+    "slug": "afyonkarahisar",
+    "population": 306908,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 4,
+    "name": "Ağrı",
+    "slug": "agri",
+    "population": 151083,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 5,
+    "name": "Amasya",
+    "slug": "amasya",
+    "population": 150828,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 6,
+    "name": "Ankara",
+    "slug": "ankara",
+    "population": 3693552,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 7,
+    "name": "Antalya",
+    "slug": "antalya",
+    "population": 1322238,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 8,
+    "name": "Artvin",
+    "slug": "artvin",
+    "population": 35186,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 9,
+    "name": "Aydın",
+    "slug": "aydin",
+    "population": 293816,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 10,
+    "name": "Balıkesir",
+    "slug": "balikesir",
+    "population": 364370,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 11,
+    "name": "Bilecik",
+    "slug": "bilecik",
+    "population": 78533,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 12,
+    "name": "Bingöl",
+    "slug": "bingol",
+    "population": 164835,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 13,
+    "name": "Bitlis",
+    "slug": "bitlis",
+    "population": 70699,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 14,
+    "name": "Bolu",
+    "slug": "bolu",
+    "population": 212358,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 15,
+    "name": "Burdur",
+    "slug": "burdur",
+    "population": 115159,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 16,
+    "name": "Bursa",
+    "slug": "bursa",
+    "population": 1999998,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 17,
+    "name": "Çanakkale",
+    "slug": "canakkale",
+    "population": 184631,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 18,
+    "name": "Çankırı",
+    "slug": "cankiri",
+    "population": 97882,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 19,
+    "name": "Çorum",
+    "slug": "corum",
+    "population": 297224,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:30.0",
+    "updated_at": "2022-02-25 09:01:30.0"
+  },
+  {
+    "id": 20,
+    "name": "Denizli",
+    "slug": "denizli",
+    "population": 311177,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 21,
+    "name": "Diyarbakır",
+    "slug": "diyarbakir",
+    "population": 1094551,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 22,
+    "name": "Edirne",
+    "slug": "edirne",
+    "population": 185408,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 23,
+    "name": "Elazığ",
+    "slug": "elazig",
+    "population": 439687,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 24,
+    "name": "Erzincan",
+    "slug": "erzincan",
+    "population": 161191,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 25,
+    "name": "Erzurum",
+    "slug": "erzurum",
+    "population": 422832,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 26,
+    "name": "Eskişehir",
+    "slug": "eskisehir",
+    "population": 783611,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 27,
+    "name": "Gaziantep",
+    "slug": "gaziantep",
+    "population": 1721475,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 28,
+    "name": "Giresun",
+    "slug": "giresun",
+    "population": 138858,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 29,
+    "name": "Gümüşhane",
+    "slug": "gumushane",
+    "population": 56398,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 30,
+    "name": "Hakkari",
+    "slug": "hakkari",
+    "population": 78672,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 31,
+    "name": "Hatay",
+    "slug": "hatay",
+    "population": 383354,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 32,
+    "name": "Isparta",
+    "slug": "isparta",
+    "population": 264426,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 33,
+    "name": "Mersin",
+    "slug": "mersin",
+    "population": 1035632,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 34,
+    "name": "İstanbul",
+    "slug": "istanbul",
+    "population": 15519267,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 35,
+    "name": "İzmir",
+    "slug": "izmir",
+    "population": 2261994,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 36,
+    "name": "Kars",
+    "slug": "kars",
+    "population": 116712,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 37,
+    "name": "Kastamonu",
+    "slug": "kastamonu",
+    "population": 152553,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:31.0",
+    "updated_at": "2022-02-25 09:01:31.0"
+  },
+  {
+    "id": 38,
+    "name": "Kayseri",
+    "slug": "kayseri",
+    "population": 968078,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 39,
+    "name": "Kırklareli",
+    "slug": "kirklareli",
+    "population": 103042,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 40,
+    "name": "Kırşehir",
+    "slug": "kirsehir",
+    "population": 157635,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 41,
+    "name": "Kocaeli",
+    "slug": "kocaeli",
+    "population": 367990,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 42,
+    "name": "Konya",
+    "slug": "konya",
+    "population": 1346330,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 43,
+    "name": "Kütahya",
+    "slug": "kutahya",
+    "population": 272367,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 44,
+    "name": "Malatya",
+    "slug": "malatya",
+    "population": 624405,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 45,
+    "name": "Manisa",
+    "slug": "manisa",
+    "population": 417578,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 46,
+    "name": "Kahramanmaraş",
+    "slug": "kahramanmaras",
+    "population": 654521,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 47,
+    "name": "Mardin",
+    "slug": "mardin",
+    "population": 178154,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 48,
+    "name": "Muğla",
+    "slug": "mugla",
+    "population": 115059,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 49,
+    "name": "Muş",
+    "slug": "mus",
+    "population": 195323,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 50,
+    "name": "Nevşehir",
+    "slug": "nevsehir",
+    "population": 148160,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 51,
+    "name": "Niğde",
+    "slug": "nigde",
+    "population": 229121,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 52,
+    "name": "Ordu",
+    "slug": "ordu",
+    "population": 217640,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 53,
+    "name": "Rize",
+    "slug": "rize",
+    "population": 147411,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:32.0",
+    "updated_at": "2022-02-25 09:01:32.0"
+  },
+  {
+    "id": 54,
+    "name": "Sakarya",
+    "slug": "sakarya",
+    "population": 276385,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 55,
+    "name": "Samsun",
+    "slug": "samsun",
+    "population": 653396,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 56,
+    "name": "Siirt",
+    "slug": "siirt",
+    "population": 168659,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 57,
+    "name": "Sinop",
+    "slug": "sinop",
+    "population": 65845,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 58,
+    "name": "Sivas",
+    "slug": "sivas",
+    "population": 381325,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 59,
+    "name": "Tekirdağ",
+    "slug": "tekirdag",
+    "population": 204001,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 60,
+    "name": "Tokat",
+    "slug": "tokat",
+    "population": 199805,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 61,
+    "name": "Trabzon",
+    "slug": "trabzon",
+    "population": 328457,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 62,
+    "name": "Tunceli",
+    "slug": "tunceli",
+    "population": 38427,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 63,
+    "name": "Şanlıurfa",
+    "slug": "sanliurfa",
+    "population": 981525,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 64,
+    "name": "Uşak",
+    "slug": "usak",
+    "population": 256669,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 65,
+    "name": "Van",
+    "slug": "van",
+    "population": 488855,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 66,
+    "name": "Yozgat",
+    "slug": "yozgat",
+    "population": 106280,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 67,
+    "name": "Zonguldak",
+    "slug": "zonguldak",
+    "population": 123997,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 68,
+    "name": "Aksaray",
+    "slug": "aksaray",
+    "population": 301661,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 69,
+    "name": "Bayburt",
+    "slug": "bayburt",
+    "population": 68771,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 70,
+    "name": "Karaman",
+    "slug": "karaman",
+    "population": 197276,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 71,
+    "name": "Kırıkkale",
+    "slug": "kirikkale",
+    "population": 198477,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 72,
+    "name": "Batman",
+    "slug": "batman",
+    "population": 460955,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 73,
+    "name": "Şırnak",
+    "slug": "sirnak",
+    "population": 93989,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 74,
+    "name": "Bartın",
+    "slug": "bartin",
+    "population": 155765,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 75,
+    "name": "Ardahan",
+    "slug": "ardahan",
+    "population": 42374,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 76,
+    "name": "Iğdır",
+    "slug": "igdir",
+    "population": 140267,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 77,
+    "name": "Yalova",
+    "slug": "yalova",
+    "population": 149068,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:33.0",
+    "updated_at": "2022-02-25 09:01:33.0"
+  },
+  {
+    "id": 78,
+    "name": "Karabük",
+    "slug": "karabuk",
+    "population": 133615,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:34.0",
+    "updated_at": "2022-02-25 09:01:34.0"
+  },
+  {
+    "id": 79,
+    "name": "Kilis",
+    "slug": "kilis",
+    "population": 118033,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:34.0",
+    "updated_at": "2022-02-25 09:01:34.0"
+  },
+  {
+    "id": 80,
+    "name": "Osmaniye",
+    "slug": "osmaniye",
+    "population": 268647,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:34.0",
+    "updated_at": "2022-02-25 09:01:34.0"
+  },
+  {
+    "id": 81,
+    "name": "Düzce",
+    "slug": "duzce",
+    "population": 247419,
+    "state_id": 1,
+    "created_at": "2022-02-25 09:01:34.0",
+    "updated_at": "2022-02-25 09:01:34.0"
+  }
+]
