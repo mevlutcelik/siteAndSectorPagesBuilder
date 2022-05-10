@@ -37,15 +37,18 @@ function str_slug($text)
 
 
 // String'in ilk harfini büyük harfe çeviriyor
-function ucfirst_tr($str)
-{
-    $m_length = mb_strlen($str, "UTF-8");
-    $firstChar = mb_substr($str, 0, 1, "UTF-8");
-    $remainder = mb_substr($str, 1, $m_length - 1, "UTF-8");
-    $firstChar = mb_strtoupper($firstChar, "UTF-8");
-    $remainder = mb_strtolower($remainder, "UTF-8");
-    return $firstChar . $remainder;
-};
+// function ucfirst_tr($str)
+// {
+//     $m_length = mb_strlen($str, "UTF-8");
+//     $firstChar = mb_substr($str, 0, 1, "UTF-8");
+//     $remainder = mb_substr($str, 1, $m_length - 1, "UTF-8");
+//     $firstChar = mb_strtoupper($firstChar, "UTF-8");
+//     $remainder = mb_strtolower($remainder, "UTF-8");
+//     return $firstChar . $remainder;
+// };
+function ucfirst_tr($str){
+    return mb_convert_case($str, MB_CASE_TITLE, "UTF-8");
+}
 
 
 // İçi dolu olsa bile klasörü silen fonksiyon
@@ -57,7 +60,7 @@ function removeFolder($folder)
         while ($obj = readdir($handle)) {
             if ($obj != '.' && $obj != '..') {
                 if (is_dir($folder . $obj)) {
-                    if (!removeFolder($folder . $obj))
+                    if (removeFolder($folder . $obj))
                         return false;
                 } elseif (is_file($folder . $obj)) {
                     if (!unlink($folder . $obj))
@@ -104,6 +107,8 @@ function setLinks($arr)
     */
 
 
+    $cityName = !isset($arr["city-name"]) ? null : $arr["city-name"];
+
     $indexClass = $arr["active"] === 'index' ? 'active' : null;
     $aboutClass = $arr["active"] === 'about' ? 'active' : null;
     $contactClass = $arr["active"] === 'contact' ? 'active' : null;
@@ -112,7 +117,11 @@ function setLinks($arr)
     if (!$arr["sector-files"]) {
         return '<a href="/" title="' . ($arr["site-name"]) . '" class="' . $indexClass . '">Anasayfa</a><a title="Hakkımızda" href="/about.html" class="' . $aboutClass . '">Hakkımızda</a><a title="İletişim" href="/contact.html" class="' . $contactClass . '">İletişim</a><a title="Gizlilik Politikası" href="/privacy-policy.html" class="' . $privacyClass . '">Gizlilik Politikası</a><a title="Çerez Politikası" href="/cookie-policy.html" class="' . $cookieClass . '">Çerez Politikası</a><br><br><br>' . $arr["links"] . "<br><br><br>";
     } else {
-        return $arr["links"];
+        if($cityName !== null){
+            return $arr["links"];
+        }else{
+            return $arr["links"];
+        }
     }
 }
 
@@ -122,8 +131,11 @@ function create_file($arrCreate)
 
     // Varsayılan ayarlar
     $arrDistrict = !isset($arrCreate["district"]) ? null : $arrCreate["district"];
+    $arrDistrictName = !isset($arrCreate["district-name"]) ? null : $arrCreate["district-name"];
     $arrDistrictCityId = !isset($arrCreate["district-city-id"]) ? null : $arrCreate["district-city-id"];
     $arrCitySektors = !isset($arrCreate["city"]) ? false : $arrCreate["city"];
+    $arrCityName = !isset($arrCreate["city-name"]) ? null : $arrCreate["city-name"];
+    $arrCitySlug = !isset($arrCreate["city-slug"]) ? null : $arrCreate["city-slug"];
     $arrCreateSectorFiles = !isset($arrCreate["sector-files"]) ? false : $arrCreate["sector-files"];
     $arrCreateTemplate = !isset($arrCreate["template"]) ? null : $arrCreate["template"];
     $arrCreateBaseText = !isset($arrCreate["base-text"]) ? null : $arrCreate["base-text"];
@@ -158,25 +170,74 @@ function create_file($arrCreate)
             $sectorTitle = $arrCreate["arr"]["sector-title"];
             $sectorDesc = $arrCreate["arr"]["sector-desc"];
 
-            $breadcrumbSchema = '{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "{siteName}",
-                "item": "https://{domain}"
-              },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "{base}",
-                "item": "https://{domain}/{baseSlug}"
-              },{
-                "@type": "ListItem",
-                "position": 3,
-                "name": "{sectorName}"
-                "item": "https://{domain}/{baseSlug}/{sectorSlug}"
-            }';
+            if ($arrDistrict !== null) {
 
-            $breadcrumb = '<span><a href="/">{siteName}</a></span>
-            <span><a class="active">{sectorName}</a></span>';
+
+                $breadcrumbSchema = '{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "{siteName}",
+                    "item": "https://{domain}"
+                  },{
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "{cityName}"
+                    "item": "https://{domain}/{citySlug}"
+                },{
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "{districtsName}"
+                    "item": "https://{domain}/{districts}"
+                },{
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "{sectorName}"
+                    "item": "https://{domain}/{districts}/{baseSlug}/{sectorSlug}"
+                }';
+
+                $breadcrumb = '<span><a href="/">{siteName}</a></span>
+                <span><a href="/{citySlug}">{cityName}</a></span>
+                <span><a href="#!">{districtsName}</a></span>
+                <span><a class="active">{sectorName}</a></span>';
+            } else if ($arrCityName !== null) {
+
+
+                $breadcrumbSchema = '{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "{siteName}",
+                    "item": "https://{domain}"
+                  },{
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "{cityName}"
+                    "item": "https://{domain}/{citySlug}"
+                },{
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "{sectorName}"
+                    "item": "https://{domain}/{citySlug}/{baseSlug}/{sectorSlug}"
+                }';
+
+                $breadcrumb = '<span><a href="/">{siteName}</a></span>
+                <span><a href="/{citySlug}">{cityName}</a></span>
+                <span><a class="active">{sectorName}</a></span>';
+            } else {
+                $breadcrumbSchema = '{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "{siteName}",
+                    "item": "https://{domain}"
+                  },{
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "{sectorName}"
+                    "item": "https://{domain}/{baseSlug}/{sectorSlug}"
+                }';
+
+                $breadcrumb = '<span><a href="/">{siteName}</a></span>
+                <span><a class="active">{sectorName}</a></span>';
+            }
 
             $randKM = rand(0, 150) / 100;
         }
@@ -194,7 +255,11 @@ function create_file($arrCreate)
                 $sectorActive = "";
                 $cityLinks = "";
             }
-            $sectorLinks[] = '<a title="' . $sector . '" href="/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+            if($arrCityName !== null){
+                $sectorLinks[] = '<a title="'. $arrCityName . ' ' . $sector . '" href="/'. str_slug($arrCityName) . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+            }else{
+                $sectorLinks[] = '<a title="' . $sector . '" href="/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+            }
         }
 
         // Navigation için Linkleri alalım
@@ -212,6 +277,7 @@ function create_file($arrCreate)
                 "active" => $arrCreate["file-name-slug"],
                 "site-name" => $arrCreate["arr"]["site-name"],
                 "sector-files" => false,
+                "city-name" => $arrCityName,
                 "links" =>  $implodeLinksHome
             ]);
         }
@@ -236,30 +302,27 @@ function create_file($arrCreate)
                 $dataDistrics = json_decode($getDistricts, true);
                 $cityLinks = [];
                 $cityName = "";
-                $districtName = "";
 
                 if ($arrDistrict !== null) {
                     $districts = array_filter($dataDistrics, function ($item) use ($arrDistrictCityId) {
                         return $item["city_id"] == $arrDistrictCityId;
                     });
                     foreach ($districts as $district) {
-                        $cityLinks[] = '<li><a href="/' . $arrDistrict . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($fileName) . '.html">' . $district["name"] . '</a></li>';
-                        $cityName = explode('-', $district["slug"])[0];
+                        $cityLinks[] = '<li><a href="/' . explode('-', $district["slug"])[0] . '/' . explode('-', $district["slug"])[1] . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($district["name"]) . '</a></li>';
+                        $cityName = explode(' ', $district["full_name"])[0];
                     }
                 } else {
                     if ($arrCitySektors) {
-                        foreach ($dataCities as $citys) {
-                            $districts = array_filter($dataDistrics, function ($item) use ($citys) {
-                                return $item["city_id"] == $citys["id"];
-                            });
-                            foreach ($districts as $district) {
-                                $cityLinks[] = '<li><a href="/' . $arrDistrict . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($fileName) . '.html">' . $district["name"] . '</a></li>';
-                                $cityName = explode('-', $district["slug"])[0];
-                            }
+                        $districts = array_filter($dataDistrics, function ($item) use ($arrDistrictCityId) {
+                            return $item["city_id"] == $arrDistrictCityId;
+                        });
+                        foreach ($districts as $district) {
+                            $cityLinks[] = '<li><a href="/' . $arrCitySlug . '/' . explode('-', $district["slug"])[1] . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($district["name"]) . '</a></li>';
+                            $cityName = explode(' ', $district["full_name"])[0];
                         }
                     } else {
                         foreach ($dataCities as $citys) {
-                            $cityLinks[] = '<li><a href="/' . $citys["slug"] . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($fileName) . '.html">' . $citys["name"] . '</a></li>';
+                            $cityLinks[] = '<li><a href="/' . $citys["slug"] . '/' . $arrCreate["arr"]["base-text"] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($citys["name"]) . '</a></li>';
                         }
                     }
                 }
@@ -312,13 +375,31 @@ function create_file($arrCreate)
             ];
             $arrCreate["arr"]["replace"][] = [
                 "variable" => "{sectorName}",
-                "item" => ucfirst_tr($fileName)
+                "item" => $fileName
             ];
+            $arrCreate["arr"]["replace"][] = [
+                "variable" => "{cityName}",
+                "item" => $arrCityName
+            ];
+            $arrCreate["arr"]["replace"][] = [
+                "variable" => "{citySlug}",
+                "item" => str_slug($arrCityName)
+            ];
+            $arrCreate["arr"]["replace"][] = [
+                "variable" => "{districts}",
+                "item" => $arrDistrict
+            ];
+            $arrCreate["arr"]["replace"][] = [
+                "variable" => "{districtsName}",
+                "item" => $arrDistrictName
+            ];
+
+
             if ($arrCreate["arr"]["location-pages"] === 'yes') {
                 if ($arrCitySektors) {
-                    $setCityLink = '<ul><li><a>' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
+                    $setCityLink = '<ul><li><a href="/' . str_slug($arrCityName) . '">' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
                 } else if ($arrDistrict !== null) {
-                    $setCityLink = '<ul><li><a>' . $cityName . '</a></li><ul><li><a>' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul></ul>';
+                    $setCityLink = '<ul><li><a href="/' . str_slug($arrCityName) . '">' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
                 } else {
                     $setCityLink = '<ul>' . implode(' ', $cityLinks) . '</ul>';
                 }
@@ -331,6 +412,31 @@ function create_file($arrCreate)
             ];
         }
 
+        if ($arrCityName !== null) {
+            if ($arrDistrict !== null) {
+                //$locationName = $arrCityName . ' ' . $arrDistrictName . ' '; Eğer ilçe sayfasında başlıkta il ve ilçe yazsın istiyorsak
+                $locationName = $arrDistrictName . ' ';
+            } else {
+                $locationName = $arrCityName . ' ';
+            }
+        } else {
+            $locationName = "";
+        }
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{locationName}",
+            "item" => $locationName
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{companyName}",
+            "item" => $arrCreate["arr"]["company-name"]
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{faviconPath}",
+            "item" => '/favicon.png'
+        ];
 
         // Değişkenleri Replace edelim
         foreach ($arrCreate["arr"]["replace"] as $variable) {
@@ -466,37 +572,17 @@ function create_site($arr)
             create_file([
                 "arr" => $arr,
                 "template" => "index",
+                "city-name" => $city["name"],
                 "file-name-slug" => $city["slug"] . '/index'
-            ]);
-
-            create_file([
-                "arr" => $arr,
-                "template" => "about",
-                "file-name-slug" => $city["slug"] . '/about'
-            ]);
-
-            create_file([
-                "arr" => $arr,
-                "template" => "contact",
-                "file-name-slug" => $city["slug"] . '/contact'
-            ]);
-
-            create_file([
-                "arr" => $arr,
-                "template" => "privacy-policy",
-                "file-name-slug" => $city["slug"] . '/privacy-policy'
-            ]);
-
-            create_file([
-                "arr" => $arr,
-                "template" => "cookie-policy",
-                "file-name-slug" => $city["slug"] . '/cookie-policy'
             ]);
 
             // Sektörleri oluşturalım
             foreach ($arr["sectors"] as $sector) {
                 create_file([
                     "city" => true,
+                    "district-city-id" => $city["id"],
+                    "city-name" => $city["name"],
+                    "city-slug" => $city["slug"],
                     "sector-files" => true,
                     "template" => "service",
                     "base-text" => $city["slug"] . '/' . $arr["base-text"],
@@ -515,7 +601,9 @@ function create_site($arr)
                 // Sektörleri oluşturalım
                 foreach ($arr["sectors"] as $sector) {
                     create_file([
+                        "city-name" => $city["name"],
                         "district" => $city["slug"] . '/' . $districtSlug[1],
+                        "district-name" => $district["name"],
                         "district-city-id" => $district["city_id"],
                         "sector-files" => true,
                         "template" => "service",
@@ -531,7 +619,7 @@ function create_site($arr)
 
     // Faviconu kayıt edelim
     if (isset($_FILES["site-favicon"])) {
-        $path = __DIR__ . '/../sites/' . $arr["domain-replace"] . '/check-icon.png';
+        $path = __DIR__ . '/../sites/' . $arr["domain-replace"] . '/favicon.png';
         if (!file_exists($path)) {
             $result = move_uploaded_file($_FILES["site-favicon"]["tmp_name"], $path);
             if (!$result) {
@@ -539,6 +627,5 @@ function create_site($arr)
             }
         }
     }
-
     echo zipper($arr["domain-replace"]);
 };

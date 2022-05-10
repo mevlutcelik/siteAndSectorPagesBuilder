@@ -3,7 +3,6 @@ set_time_limit(0);
 // Gerekli dosyaları require edelim
 require_once __DIR__ . '/sectors.php';
 require_once __DIR__ . '/functions.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -44,20 +43,24 @@ require_once __DIR__ . '/functions.php';
 
 
             // Gelen post değerlerini alalım
-            $siteName = ucfirst_tr(mx_filter(@$_POST["site-name"], false));
+            $siteName = mx_filter(@$_POST["site-name"], false);
             $domain = mx_filter(@$_POST["domain"]);
             $phone = mx_filter(@$_POST["phone"]);
             $color = @$_POST["color"];
             $menuPosition = @$_POST["menu-position"];
             $ctaText = ucfirst_tr(mx_filter(@$_POST["cta-text"], false));
             $baseText = mx_filter(@$_POST["base-text"], false);
+            if($baseText === ''){
+                $baseText = 'hizmet';
+            }
             $homeTitle = mx_filter(@$_POST["home-title"], false);
             $homeDesc = mx_filter(@$_POST["home-desc"], false);
             $sectorTitle = mx_filter(@$_POST["sector-title"], false);
             $sectorDesc = mx_filter(@$_POST["sector-desc"], false);
             $locationPages = @$_POST["location-pages"];
             $favicon = @$_FILES["favicon"];
-            $address = ucfirst_tr(mx_filter(@$_POST["address"], false));
+            $address = mx_filter(@$_POST["address"], false);
+            $companyName = mx_filter(@$_POST["company-name"], false);
             $referanceInputNum = @$_POST["referance-input-num"];
             $analyticsCode = @$_POST["analytics-code"];
             $conversionTrackingCode = @$_POST["conversion-tracking-code"];
@@ -73,6 +76,13 @@ require_once __DIR__ . '/functions.php';
             } else {
                 // Eğer boş input yoksa devam edelim
 
+                if (isset($_FILES["site-favicon"]) && $_FILES["site-favicon"]["size"]  > (20 * 1024)) {
+                    msg('Maksimum favicon yükleme boyutu 20 KB\'dir.');
+                    die();
+                } else if (isset($_FILES['site-favicon']) && (pathinfo($_FILES["site-favicon"]["name"], PATHINFO_EXTENSION) !== 'png')) {
+                    msg('Sadece png formatındaki dosyalar yüklenebilir.');
+                    die();
+                }
 
                 // Domaindeki . olan yerleri _ ile değiştirelim
                 $domainReplace = str_replace('.', '_', $domain);
@@ -97,13 +107,15 @@ require_once __DIR__ . '/functions.php';
                     $rootColors = '<style>:root{--gradient-dark:#301306;--gradient-primary:#7c4228;--primary:#bf671c;--primary-hover:#762b08;}</style>';
                 } else if ($color === 'purple') {
                     $rootColors = '<style>:root{--gradient-dark:#23083c;--gradient-primary:#992f95;--primary:#c496f7;--primary-hover:#8b54c9;}</style>';
+                }else{
+                    $rootColors = '';
                 }
 
 
                 // Referans linklerimizi oluşturalım
                 $refLink = "";
                 for ($i = 1; $i <= $referanceInputNum; $i++) {
-                    $refInputName = $_POST["referance-name-" . $i];
+                    $refInputName = ucfirst_tr(mx_filter(@$_POST["referance-name-" . $i]));
                     $refInputLink = $_POST["referance-link-" . $i];
                     if ($refInputName !== '' && $refInputLink !== '') {
                         $refLink .= '<a title="' . $refInputName . '" href="' . $refInputLink . '">' . $refInputName . '</a>';
@@ -140,6 +152,7 @@ require_once __DIR__ . '/functions.php';
                     "location-pages" => $locationPages,
                     "favicon" => $favicon,
                     "address" => $address,
+                    "company-name" => $companyName,
                     "sectors" => $arrSector,
                     "referances" => $refLink,
                     "analytics-code" => $analyticsCode,
@@ -227,6 +240,7 @@ require_once __DIR__ . '/functions.php';
                         <option value="blue">Mavi</option>
                         <option value="orange">Turuncu</option>
                         <option value="brown">Kahverengi</option>
+                        <option value="green">Yeşil</option>
                         <option value="purple">Mor</option>
                     </select>
                 </div>
@@ -242,20 +256,20 @@ require_once __DIR__ . '/functions.php';
                     <input type="text" id="cta-text" name="cta-text" placeholder="Bayimiz ol yazısı" required />
                 </div>
                 <div class="input">
-                    <label for="base-text">Kategori <small>(base)</small> yazısı<sup>*</sup></label>
-                    <input type="text" id="base-text" name="base-text" placeholder="Kategori (base) yazısı" required />
+                    <label for="base-text">Kategori <small>(base)</small> yazısı</label>
+                    <input type="text" id="base-text" name="base-text" placeholder="Kategori (base) yazısı" />
                 </div>
                 <div class="input">
                     <label for="home-title">Anasayfa başlık yazısı<sup>*</sup></label>
                     <label for="home-title"><small>Başlığı yazarken kullanmak zorunda olduğunuz değişken <a title="Değişkeni eklemek için tıklayın" onclick="addVariable('home-title', '{siteName}')" style="background-color: #fff;font-size:0.625rem;border-radius:0.25rem;"><strong>{siteName}</strong></a></small></label>
                     <label for="home-title"><small>Kalan karakter hakkınız: <strong id="home-title-char"></strong></small></label>
-                    <input type="text" id="home-title" name="home-title" controle-char="true" placeholder="Sektör başlık yazısı" required />
+                    <input type="text" id="home-title" name="home-title" controle-char="true" placeholder="Anasayfa başlık yazısı" required />
                 </div>
                 <div class="input">
                     <label for="home-desc">Anasayfa açıklama yazısı<sup>*</sup></label>
                     <label for="home-desc"><small>Açıklamayı yazarken kullanmak zorunda olduğunuz değişken <a title="Değişkeni eklemek için tıklayın" onclick="addVariable('home-desc', '{siteName}')" style="background-color: #fff;font-size:0.625rem;border-radius:0.25rem;"><strong>{siteName}</strong></a></small></label>
                     <label for="home-desc"><small>Kalan karakter hakkınız: <strong id="home-desc-char"></strong></small></label>
-                    <input type="text" id="home-desc" name="home-desc" controle-char="true" placeholder="Sektör açıklama yazısı" required />
+                    <input type="text" id="home-desc" name="home-desc" controle-char="true" placeholder="Anasayfa açıklama yazısı" required />
                 </div>
                 <div class="input">
                     <label for="sector-title">Sektör başlık yazısı<sup>*</sup></label>
@@ -279,8 +293,12 @@ require_once __DIR__ . '/functions.php';
                 <div class="input">
                     <label for="site-favicon">Site favicon<sup>*</sup></label>
                     <label for="site-favicon"><small>Sadece <strong>png</strong> türünde dosya yüklenebilir.</small></label>
-                    <label for="site-favicon"><small>Maksimum dosya yükleme boyutu <strong>2KB</strong></small></label>
+                    <label for="site-favicon"><small>Maksimum dosya yükleme boyutu <strong>20KB</strong></small></label>
                     <input type="file" accept="image/png" name="site-favicon" id="site-favicon" required />
+                </div>
+                <div class="input">
+                    <label for="company-name">Firma adı <sup>*</sup></label>
+                    <input type="text" id="company-name" name="company-name" placeholder="Firma adı" required />
                 </div>
                 <div class="input">
                     <label for="address">Firma adresi <small>(konumu)</small><sup>*</sup></label>
