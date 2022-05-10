@@ -13,7 +13,7 @@ require_once __DIR__ . '/functions.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Oluşturma Paneli</title>
-    <link rel="stylesheet" href="/assets/style/panel.min.css">
+    <link rel="stylesheet" href="/css/panel.min.css">
 </head>
 
 <body>
@@ -49,10 +49,6 @@ require_once __DIR__ . '/functions.php';
             $color = @$_POST["color"];
             $menuPosition = @$_POST["menu-position"];
             $ctaText = ucfirst_tr(mx_filter(@$_POST["cta-text"], false));
-            $baseText = mx_filter(@$_POST["base-text"], false);
-            if($baseText === ''){
-                $baseText = 'hizmet';
-            }
             $homeTitle = mx_filter(@$_POST["home-title"], false);
             $homeDesc = mx_filter(@$_POST["home-desc"], false);
             $sectorTitle = mx_filter(@$_POST["sector-title"], false);
@@ -68,7 +64,7 @@ require_once __DIR__ . '/functions.php';
 
 
             // Boşluk kontrolü yapalım (sadece zorunlu olanlar)
-            if (empty($siteName) && empty($domain) && empty($phone) && empty($color) && empty($menuPosition) && empty($ctaText) && empty($baseText) && empty($homeTitle) && empty($homeDesc) && empty($sectorTitle) && empty($sectorDesc) && empty($locationPages) && !isset($favicon) && empty($address)) {
+            if (empty($siteName) && empty($domain) && empty($phone) && empty($color) && empty($menuPosition) && empty($ctaText) && empty($homeTitle) && empty($homeDesc) && empty($sectorTitle) && empty($sectorDesc) && empty($locationPages) && !isset($favicon) && empty($address)) {
 
                 // Eğer boş input varsa uyarı mesajı gösterelim
                 msg('Lütfen boş bırakmayın!');
@@ -144,7 +140,6 @@ require_once __DIR__ . '/functions.php';
                     "root-colors" => $rootColors,
                     "menu-position" => $menuPosition,
                     "cta-text" => $ctaText,
-                    "base-text" => $baseText,
                     "home-title" => $homeTitle,
                     "home-desc" => $homeDesc,
                     "sector-title" => $sectorTitle,
@@ -201,14 +196,8 @@ require_once __DIR__ . '/functions.php';
                             "variable" => "{formattedPhone}",
                             "item" => $formattedPhone
                         ], [
-                            "variable" => "{base}",
-                            "item" => ucfirst_tr($baseText)
-                        ], [
                             "variable" => "{domain}",
                             "item" => $domain
-                        ], [
-                            "variable" => "{baseSlug}",
-                            "item" => str_slug($baseText)
                         ], [
                             "variable" => "{sectorActive}",
                             "item" => ""
@@ -254,10 +243,6 @@ require_once __DIR__ . '/functions.php';
                 <div class="input">
                     <label for="cta-text">Bayimiz ol yazısı<sup>*</sup></label>
                     <input type="text" id="cta-text" name="cta-text" placeholder="Bayimiz ol yazısı" required />
-                </div>
-                <div class="input">
-                    <label for="base-text">Kategori <small>(base)</small> yazısı</label>
-                    <input type="text" id="base-text" name="base-text" placeholder="Kategori (base) yazısı" />
                 </div>
                 <div class="input">
                     <label for="home-title">Anasayfa başlık yazısı<sup>*</sup></label>
