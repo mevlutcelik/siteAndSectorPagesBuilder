@@ -4,6 +4,7 @@ set_time_limit(0);
 require_once __DIR__ . '/sectors.php';
 require_once __DIR__ . '/icon-items.php';
 require_once __DIR__ . '/author-names.php';
+require_once __DIR__ . '/words-for-meta.php';
 require_once __DIR__ . '/functions.php';
 ?>
 
@@ -51,10 +52,32 @@ require_once __DIR__ . '/functions.php';
             $color = @$_POST["color"];
             $menuPosition = @$_POST["menu-position"];
             $ctaText = ucfirst_tr(mx_filter(@$_POST["cta-text"], false));
-            $homeTitle = mx_filter(@$_POST["home-title"], false);
-            $homeDesc = mx_filter(@$_POST["home-desc"], false);
-            $sectorTitle = mx_filter(@$_POST["sector-title"], false);
-            $sectorDesc = mx_filter(@$_POST["sector-desc"], false);
+
+            $homeTitle = '';
+            $homeDesc = '{siteName} -';
+            $sectorTitle = '{sectorName} -';
+            $sectorDesc = '{sectorName} -';
+            $randomTitle = array_rand($arrWords, 2);
+            $randomDesc = array_rand($arrWords, 8);
+            $randomSector = array_rand($arrWords, 2);
+            $randomSectorDesc = array_rand($arrWords, 8);
+            foreach($randomTitle as $words){
+                $homeTitle .= ' ' . $arrWords[$words] . ' ';
+            };
+            foreach($randomDesc as $words){
+                $homeDesc .= ' ' . $arrWords[$words] . ' ';
+            };
+            foreach($randomSector as $words){
+                $sectorTitle .= ' ' . $arrWords[$words] . ' ';
+            };
+            foreach($randomSectorDesc as $words){
+                $sectorDesc .= ' ' . $arrWords[$words] . ' ';
+            };
+            $homeTitle .= '- {siteName}';
+            //$homeTitle = mx_filter(@$_POST["home-title"], false);
+            //$homeDesc = mx_filter(@$_POST["home-desc"], false);
+            //$sectorTitle = mx_filter(@$_POST["sector-title"], false);
+            //$sectorDesc = mx_filter(@$_POST["sector-desc"], false);
             $locationPages = @$_POST["location-pages"];
             $favicon = @$_FILES["favicon"];
             $address = mx_filter(@$_POST["address"], false);
@@ -248,7 +271,7 @@ require_once __DIR__ . '/functions.php';
                     <label for="cta-text">Bayimiz ol yazısı<sup>*</sup></label>
                     <input type="text" id="cta-text" name="cta-text" placeholder="Bayimiz ol yazısı" required />
                 </div>
-                <div class="input">
+                <!-- <div class="input">
                     <label for="home-title">Anasayfa başlık yazısı<sup>*</sup></label>
                     <label for="home-title"><small>Başlığı yazarken kullanmak zorunda olduğunuz değişken <a title="Değişkeni eklemek için tıklayın" onclick="addVariable('home-title', '{siteName}')" style="background-color: #fff;font-size:0.625rem;border-radius:0.25rem;"><strong>{siteName}</strong></a></small></label>
                     <label for="home-title"><small>Kalan karakter hakkınız: <strong id="home-title-char"></strong></small></label>
@@ -271,7 +294,7 @@ require_once __DIR__ . '/functions.php';
                     <label for="sector-desc"><small>Açıklamayı yazarken kullanmak zorunda olduğunuz değişken <a title="Değişkeni eklemek için tıklayın" onclick="addVariable('sector-desc', '{sectorName}')" style="background-color: #fff;font-size:0.625rem;border-radius:0.25rem;"><strong>{sectorName}</strong></a></small></label>
                     <label for="sector-desc"><small>Kalan karakter hakkınız: <strong id="sector-desc-char"></strong></small></label>
                     <input type="text" id="sector-desc" name="sector-desc" controle-char="true" placeholder="Sektör açıklama yazısı" required />
-                </div>
+                </div> -->
                 <div class="input">
                     <label for="location-pages">Lokasyon sayfaları oluşsun mu?<sup>*</sup></label>
                     <select id="location-pages" name="location-pages">

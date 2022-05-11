@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/zipper.php';
+require_once __DIR__ . '/site-map-creator.php';
 
 // Veriyi filtreleme işlemini yapıyor
 function mx_filter($val, $lower = true)
@@ -133,8 +134,9 @@ function create_file($arrCreate)
     $arrDistrict = !isset($arrCreate["district"]) ? null : $arrCreate["district"];
     $arrDistrictName = !isset($arrCreate["district-name"]) ? null : $arrCreate["district-name"];
     $arrDistrictCityId = !isset($arrCreate["district-city-id"]) ? null : $arrCreate["district-city-id"];
-    $arrCitySektors = !isset($arrCreate["city"]) ? false : $arrCreate["city"];
+    $arrCitySektors = !isset($arrCreate["city"]) ? null : $arrCreate["city"];
     $arrCityName = !isset($arrCreate["city-name"]) ? null : $arrCreate["city-name"];
+    $isCitySlug = !isset($arrCreate["is-city-slug"]) ? null : $arrCreate["is-city-slug"];
     $arrCitySlug = !isset($arrCreate["city-slug"]) ? null : $arrCreate["city-slug"];
     $arrCreateSectorFiles = !isset($arrCreate["sector-files"]) ? false : $arrCreate["sector-files"];
     $arrCreateTemplate = !isset($arrCreate["template"]) ? null : $arrCreate["template"];
@@ -153,7 +155,6 @@ function create_file($arrCreate)
 
         // Sektör linklerimizi oluşturalım
         $sectorLinks = [];
-
 
         // Sektör dosyası oluşacaksa sektör bilgisini al
         if ($arrCreateSectorFiles) {
@@ -191,6 +192,8 @@ function create_file($arrCreate)
                 <div class="breadcrumb-text districts"><a href="/{citySlug}">{cityName}</a></div>
                 <div class="breadcrumb-text districts"><a href="/{districts}">{districtsName}</a></div>
                 <div class="breadcrumb-text districts"><a class="active">{sectorName}</a></div>';
+
+                $siteMapContent = '{site}';
             } else if ($arrCityName !== null) {
 
                 $breadcrumbSchema = '{
@@ -249,7 +252,11 @@ function create_file($arrCreate)
                 $cityLinks = "";
             }
             if ($arrCityName !== null) {
-                $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                if ($isCitySlug !== null) {
+                    $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . $isCitySlug . '/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                } else {
+                    $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                }
             } else {
                 $sectorLinks[] = '<a title="' . $sector . '" href="/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
             }
@@ -390,7 +397,7 @@ function create_file($arrCreate)
                 "item" => implode(' ', $iconItems)
             ];
 
-            $randomAuthorName = array_rand($arrCreate["arr"]["author-names"],1);
+            $randomAuthorName = array_rand($arrCreate["arr"]["author-names"], 1);
 
             $arrCreate["arr"]["replace"][] = [
                 "variable" => "{randomAuthorName}",
@@ -400,9 +407,9 @@ function create_file($arrCreate)
 
             if ($arrCreate["arr"]["location-pages"] === 'yes') {
                 if ($arrCitySektors) {
-                    $setCityLink = '<ul><li><a href="/' . str_slug($arrCityName) . '">' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
+                    $setCityLink = '<ul><li><a title="' . $cityName . '" href="/' . str_slug($arrCityName) . '">' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
                 } else if ($arrDistrict !== null) {
-                    $setCityLink = '<ul><li><a href="/' . str_slug($arrCityName) . '">' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
+                    $setCityLink = '<ul><li><a title="' . $cityName . '" href="/' . str_slug($arrCityName) . '">' . $cityName . '</a></li><ul>' . implode(' ', $cityLinks) . '</ul></ul>';
                 } else {
                     $setCityLink = '<ul>' . implode(' ', $cityLinks) . '</ul>';
                 }
@@ -460,10 +467,19 @@ function create_file($arrCreate)
         } else {
             $filePath = $arrCreate["file-name-slug"];
         }
-        $file = file_put_contents(getFile($filePath . '.html', $arrCreate["arr"]["domain-replace"]), $template);
-        if (!$file) {
-            msg($arrCreate["file-name-slug"] . '.html dosyası oluşurken bir hata oluştu!');
+
+        if($arrDistrictName !== 'Merkez'){
+            $file = file_put_contents(getFile($filePath . '.html', $arrCreate["arr"]["domain-replace"]), $template);
+            if (!$file) {
+                msg($arrCreate["file-name-slug"] . '.html dosyası oluşurken bir hata oluştu!');
+            }
         }
+
+
+        if (!file_exists(__DIR__ . '/../sites/' . $arrCreate["arr"]["domain-replace"] . '/sitemaps')) {
+            mkdir(__DIR__ . '/../sites/' . $arrCreate["arr"]["domain-replace"] . '/sitemaps', 0777, true);
+        }
+
     }
 }
 
@@ -537,6 +553,16 @@ function create_site($arr)
         "file-name-slug" => 'cookie-policy'
     ]);
 
+    // SiteMap linklerini belirleyelim
+    $siteMapLinks = [];
+    $siteMapSectorLinks = [];
+
+    // Şehir ve İlçe Json dosyalarını alalım
+    $getCities = file_get_contents('../json/cities.json');
+    $dataCities = json_decode($getCities, true);
+    $getDistricts = file_get_contents('../json/districts.json');
+    $dataDistrics = json_decode($getDistricts, true);
+
     // Sektörleri oluşturalım
     foreach ($arr["sectors"] as $sector) {
         create_file([
@@ -546,23 +572,61 @@ function create_site($arr)
             "file-name" => $sector,
             "file-name-slug" => str_slug($sector)
         ]);
+        $siteMapSectorLinks[] = str_slug($sector);
     }
 
     if ($arr["location-pages"] === 'yes') {
 
-        // Şehir ve İlçe Json dosyalarını alalım
-        $getCities = file_get_contents('../json/cities.json');
-        $dataCities = json_decode($getCities, true);
-        $getDistricts = file_get_contents('../json/districts.json');
-        $dataDistrics = json_decode($getDistricts, true);
-
         // Şehirleri döngüden geçirelim
         foreach ($dataCities as $city) {
+
+            $siteMapCityLinks = [];
+            $siteMapSpecialCityLinks = [];
 
             // Şehire ait ilçeleri bulalım
             $districts = array_filter($dataDistrics, function ($item) use ($city) {
                 return $item["city_id"] == $city["id"];
             });
+
+
+            // Şehrin linkini ekleyelim
+            $siteMapCityLinks[] = $city["slug"];
+            $siteMapSpecialCityLinks[] = $city["slug"];
+
+
+            // Şehirin sektör linkini ekliyoruz
+            $siteMapCityLinks[] = $city["slug"];
+            foreach ($siteMapSectorLinks as $sectorLinks) {
+                $siteMapSpecialCityLinks[] = $city["slug"] . '/' . $sectorLinks;
+            }
+
+            // Şehirin ileçeleri linkini ekliyoruz
+            foreach ($districts as $district) {
+                $siteMapSpecialCityLinks[] = $city["slug"] . '/' . explode('-', $district["slug"])[1];
+            }
+
+            // Şehirin ilçelerinin sektörleri linkini ekliyoruz
+            foreach ($siteMapSectorLinks as $sectorLinks) {
+                foreach ($districts as $district) {
+                    $siteMapSpecialCityLinks[] = $city["slug"] . '/' . explode('-', $district["slug"])[1] . '/' . $sectorLinks;
+                }
+            }
+
+            $siteMapLinks = [];
+            foreach ($siteMapSpecialCityLinks as $specialLink) {
+                $siteMapLinks[] = [
+                    "loc" => "https://" . $arr["domain"] . "/" . $specialLink . "/index.html",
+                    "changefreq" => "monthly",
+                    "priority" => "0.8"
+                ];
+            }
+
+            siteMapCreate([
+                "links" => $siteMapLinks,
+                "domain-replace" => $arr["domain-replace"],
+                "file-name" => str_slug($city["name"]) . ""
+            ]);
+
 
             // Şehrin klasörü yoksa oluşturalım
             if (!file_exists(getFile($city["slug"], $arr["domain-replace"]))) {
@@ -576,6 +640,7 @@ function create_site($arr)
                 "city-name" => $city["name"],
                 "file-name-slug" => $city["slug"] . '/index'
             ]);
+
 
             // Sektörleri oluşturalım
             foreach ($arr["sectors"] as $sector) {
@@ -603,9 +668,10 @@ function create_site($arr)
                     "arr" => $arr,
                     "template" => "index",
                     "city-name" => $district["name"],
-                    "is-city-slug" => $city["slug"], // TODO ilçe link
+                    "is-city-slug" => $city["slug"],
                     "file-name-slug" => $city["slug"] . '/' . $districtSlug[1] . '/index'
                 ]);
+
 
                 // Sektörleri oluşturalım
                 foreach ($arr["sectors"] as $sector) {
@@ -635,6 +701,84 @@ function create_site($arr)
             }
         }
     }
+
+    // Index için linklerini belirleyelim
+    $siteMapLinks = [
+        [
+            "loc" => "https://" . $arr["domain"],
+            "changefreq" => "daily",
+            "priority" => "1.0"
+        ], [
+            "loc" => "https://" . $arr["domain"] . "/about.html",
+            "changefreq" => "monthly",
+            "priority" => "0.8"
+        ], [
+            "loc" => "https://" . $arr["domain"] . "/contact.html",
+            "changefreq" => "monthly",
+            "priority" => "0.8"
+        ], [
+            "loc" => "https://" . $arr["domain"] . "/cookie-policy.html",
+            "changefreq" => "monthly",
+            "priority" => "0.7"
+        ], [
+            "loc" => "https://" . $arr["domain"] . "/privacy-policy.html",
+            "changefreq" => "monthly",
+            "priority" => "0.7"
+        ],
+    ];
+
+    foreach ($siteMapSectorLinks as $sectorLinks) {
+        $siteMapLinks[] = [
+            "loc" => "https://" . $arr["domain"] . "/" . $sectorLinks . ".html",
+            "changefreq" => "monthly",
+            "priority" => "1.0"
+        ];
+    }
+
+    siteMapCreate([
+        "links" => $siteMapLinks,
+        "domain-replace" => $arr["domain-replace"],
+        "file-name" => "index"
+    ]);
+
+    $siteMapLinks = [];
+    if (!isset($siteMapCityLinks)) {
+        $arrSiteMapCityLinks = [];
+        foreach ($dataCities as $city) {
+            $arrSiteMapCityLinks[] = $city["slug"];
+        }
+    } else {
+        $arrSiteMapCityLinks = $siteMapCityLinks;
+    }
+    $siteMapXmlLinks = [
+        ["xml-links" => "index-sitemap.xml"]
+    ];
+    foreach ($arrSiteMapCityLinks as $cityLinks) {
+        $siteMapLinks[] = [
+            "loc" => "https://" . $arr["domain"] . "/" . $cityLinks . "/index.html",
+            "changefreq" => "monthly",
+            "priority" => "0.9"
+        ];
+        $siteMapXmlLinks[] = ["xml-links" => $cityLinks . '-sitemap.xml'];
+    }
+
+    siteMapCreate([
+        "links" => $siteMapLinks,
+        "domain-replace" => $arr["domain-replace"],
+        "xml-links" => true
+    ]);
+
+    
+    $robotsTxtContent = 'User-agent: *
+Allow: /
+Sitemap: /sitemap.xml';
+
+    $createRobotsTxt = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/robots.txt' , $robotsTxtContent);
+
+    if(!$createRobotsTxt){
+        msg('Robots.txt dosyası oluşturulurken bir hata oluştu!');
+    }
+
 
     echo zipper($arr["domain-replace"]);
 };

@@ -329,6 +329,10 @@ main {
         position: relative;
     }
 
+    ul{
+        list-style: none;
+    }
+
     h1 {
         font-size: 3rem;
         text-align: left;
@@ -635,6 +639,7 @@ a {
     position: absolute;
     top: -3rem;
     right: 0;
+    text-shadow: none;
     width: max-content;
 
     svg {
@@ -654,16 +659,23 @@ a {
 
     main {
         width: initial;
-        margin: 0;
+        margin: 0 0.5rem;
+
+        .breadcrumb-text{
+            a{
+                font-size: 0.875rem;
+            }
+        }
 
         h1 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             text-align: center;
             padding: 0 0.5rem;
         }
 
         p {
             padding: 0 0.5rem;
+            font-size: 0.875rem;
             text-align: center;
         }
 
@@ -756,13 +768,19 @@ a {
         }
     }
 
+    .breadcrumb-text{
+        a{
+            font-size: 0.875rem;
+        }
+    }
+
     .star {
         justify-content: flex-start;
     }
 
     main {
         width: initial;
-        margin: 0;
+        margin: 0 0.5rem;
 
         h1 {
             font-size: 2rem;
@@ -776,6 +794,7 @@ a {
 
         p {
             padding: 0 0.5rem;
+            font-size: 0.875rem;
             text-align: center;
         }
 
@@ -872,6 +891,11 @@ a {
     }
 
     main {
+        .breadcrumb-text{
+            a{
+                font-size: 1rem;
+            }
+        }
 
         h1 {
             font-size: 3rem;
@@ -887,6 +911,7 @@ a {
         p {
             text-align: center;
             padding: 0;
+            font-size: 1rem;
         }
 
         .buttons {

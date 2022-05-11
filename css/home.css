@@ -306,6 +306,10 @@ main {
   transition: all 0.3s;
 }
 
+main ul {
+  list-style: none;
+}
+
 main h1 {
   font-size: 3rem;
   text-align: left;

@@ -415,6 +415,10 @@ main .h1-title {
   position: relative;
 }
 
+main ul {
+  list-style: none;
+}
+
 main h1 {
   font-size: 3rem;
   text-align: left;
@@ -797,6 +801,7 @@ a svg.dark path {
   position: absolute;
   top: -3rem;
   right: 0;
+  text-shadow: none;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -815,15 +820,19 @@ a svg.dark path {
   }
   main {
     width: initial;
-    margin: 0;
+    margin: 0 0.5rem;
+  }
+  main .breadcrumb-text a {
+    font-size: 0.875rem;
   }
   main h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     text-align: center;
     padding: 0 0.5rem;
   }
   main p {
     padding: 0 0.5rem;
+    font-size: 0.875rem;
     text-align: center;
   }
   main .buttons {
@@ -896,6 +905,9 @@ a svg.dark path {
   header nav {
     padding: 0 1rem;
   }
+  .breadcrumb-text a {
+    font-size: 0.875rem;
+  }
   .star {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -903,7 +915,7 @@ a svg.dark path {
   }
   main {
     width: initial;
-    margin: 0;
+    margin: 0 0.5rem;
   }
   main h1 {
     font-size: 2rem;
@@ -917,6 +929,7 @@ a svg.dark path {
   }
   main p {
     padding: 0 0.5rem;
+    font-size: 0.875rem;
     text-align: center;
   }
   main .buttons {
@@ -998,6 +1011,9 @@ a svg.dark path {
   #telBtn .d-block.text-shadow.h6.mb-0.fw-light .ps-2 {
     margin-right: 3rem !important;
   }
+  main .breadcrumb-text a {
+    font-size: 1rem;
+  }
   main h1 {
     font-size: 3rem;
     text-align: center;
@@ -1012,6 +1028,7 @@ a svg.dark path {
   main p {
     text-align: center;
     padding: 0;
+    font-size: 1rem;
   }
   main .buttons {
     display: -webkit-box;

@@ -24,11 +24,11 @@ function addReferances() {
 }
 
 // Zorunlu değişkeni inputa ekleme fonksiyonu
-function addVariable(id, variable) {
-    let input = document.querySelector(`#${id}`);
-    input.value = document.querySelector(`#${id}`).value + variable;
-    controleInput(input);
-}
+// function addVariable(id, variable) {
+//     let input = document.querySelector(`#${id}`);
+//     input.value = document.querySelector(`#${id}`).value + variable;
+//     controleInput(input);
+// }
 
 // Hatalı inputları diziye ekleyen fonksiyon
 function pushErr(input) {

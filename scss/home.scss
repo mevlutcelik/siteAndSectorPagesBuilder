@@ -242,6 +242,10 @@ main {
     color: #fff;
     transition: all 0.3s;
 
+    ul{
+        list-style: none;
+    }
+
     h1 {
         font-size: 3rem;
         text-align: left;
