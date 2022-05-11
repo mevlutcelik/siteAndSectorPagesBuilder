@@ -134,10 +134,16 @@ details {
     justify-content: center;
 
     .breadcrumb-text {
-        max-width: 26vw;
+        max-width: 44vw;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        &.city{
+            max-width: 38vw;
+        }
+        &.districts{
+            max-width: 26vw;
+        }
     }
 
     div+div::before {

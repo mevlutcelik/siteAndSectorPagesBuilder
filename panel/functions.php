@@ -187,10 +187,10 @@ function create_file($arrCreate)
                 }';
 
 
-                $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
-                <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
-                <div class="breadcrumb-text"><a href="/{districts}">{districtsName}</a></div>
-                <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text districts"><a href="/">{siteName}</a></div>
+                <div class="breadcrumb-text districts"><a href="/{citySlug}">{cityName}</a></div>
+                <div class="breadcrumb-text districts"><a href="/{districts}">{districtsName}</a></div>
+                <div class="breadcrumb-text districts"><a class="active">{sectorName}</a></div>';
             } else if ($arrCityName !== null) {
 
                 $breadcrumbSchema = '{
@@ -210,9 +210,9 @@ function create_file($arrCreate)
                         "item": "https://{domain}/{citySlug}/{sectorSlug}"
                     }';
 
-                $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
-                    <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
-                    <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text city"><a href="/">{siteName}</a></div>
+                    <div class="breadcrumb-text city"><a href="/{citySlug}">{cityName}</a></div>
+                    <div class="breadcrumb-text city"><a class="active">{sectorName}</a></div>';
             } else {
 
                 $breadcrumbSchema = '{

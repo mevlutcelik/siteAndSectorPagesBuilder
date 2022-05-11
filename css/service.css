@@ -157,10 +157,18 @@ details summary::marker {
 }
 
 .breadcrumb .breadcrumb-text {
-  max-width: 26vw;
+  max-width: 44vw;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.breadcrumb .breadcrumb-text.city {
+  max-width: 38vw;
+}
+
+.breadcrumb .breadcrumb-text.districts {
+  max-width: 26vw;
 }
 
 .breadcrumb div + div::before {
