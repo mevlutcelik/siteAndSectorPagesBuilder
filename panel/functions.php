@@ -191,8 +191,6 @@ function create_file($arrCreate)
                 <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
                 <div class="breadcrumb-text"><a href="/{districts}">{districtsName}</a></div>
                 <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
-
-
             } else if ($arrCityName !== null) {
 
                 $breadcrumbSchema = '{
@@ -211,11 +209,10 @@ function create_file($arrCreate)
                         "name": "{sectorName}"
                         "item": "https://{domain}/{citySlug}/{sectorSlug}"
                     }';
-    
-                    $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
+
+                $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
                     <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
                     <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
-                    
             } else {
 
                 $breadcrumbSchema = '{
@@ -233,7 +230,6 @@ function create_file($arrCreate)
 
                 $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
                 <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
-
             }
 
             $randKM = rand(0, 150) / 100;
@@ -381,6 +377,17 @@ function create_file($arrCreate)
             $arrCreate["arr"]["replace"][] = [
                 "variable" => "{districtsName}",
                 "item" => $arrDistrictName
+            ];
+
+            $iconItems = [];
+            shuffle($arrCreate["arr"]["icon-items"]);
+            foreach ($arrCreate["arr"]["icon-items"] as $iconItem) {
+                $iconItems[] = $iconItem;
+            }
+
+            $arrCreate["arr"]["replace"][] = [
+                "variable" => "{iconItems}",
+                "item" => implode(' ', $iconItems)
             ];
 
 
@@ -574,7 +581,7 @@ function create_site($arr)
                     "template" => "service",
                     "arr" => $arr,
                     "file-name" => $sector,
-                    "file-name-slug" => $city["slug"] . '/' .str_slug($sector)
+                    "file-name-slug" => $city["slug"] . '/' . str_slug($sector)
                 ]);
             }
 

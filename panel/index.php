@@ -2,6 +2,7 @@
 set_time_limit(0);
 // Gerekli dosyaları require edelim
 require_once __DIR__ . '/sectors.php';
+require_once __DIR__ . '/icon-items.php';
 require_once __DIR__ . '/functions.php';
 ?>
 
@@ -149,6 +150,7 @@ require_once __DIR__ . '/functions.php';
                     "address" => $address,
                     "company-name" => $companyName,
                     "sectors" => $arrSector,
+                    "icon-items" => $arrIconItems,
                     "referances" => $refLink,
                     "analytics-code" => $analyticsCode,
                     "conversion-tracking-code" => $conversionTrackingCode,
