@@ -11,6 +11,7 @@
 html {
     overflow: hidden;
 }
+
 body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, var(--gradient-dark, #002405) 40%, var(--gradient-primary, #003c08) 100%);
     width: 100vw;
@@ -18,30 +19,37 @@ body {
     height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
 }
+
 ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
     background: #212529;
 }
+
 ::-webkit-scrollbar-track {
     background: #212529;
 }
+
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.7);
     // border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 1);
 }
-iframe{
+
+iframe {
     max-height: 38rem;
     width: 100%;
     height: calc((var(--vh, 1vh) * 100) - 6rem);
     border-radius: 0.5rem;
 }
+
 ::placeholder {
     color: rgba(255, 255, 255, 0.5);
 }
+
 .modal {
     display: none;
     align-items: center;
@@ -79,17 +87,20 @@ iframe{
 }
 
 // Ul -> Li
-ul{
-    li{
+ul {
+    li {
         margin: 1rem 0 1rem 1rem;
-        &::marker{
+
+        &::marker {
             color: rgba(255, 255, 255, 0.2);
         }
     }
-    ul{
+
+    ul {
         margin-left: 1rem;
     }
-    a{
+
+    a {
         margin-bottom: 0;
     }
 }
@@ -104,13 +115,15 @@ ul{
     z-index: 2;
     display: none;
 }
-details{
-    summary{
-        &::marker{
+
+details {
+    summary {
+        &::marker {
             color: rgba(255, 255, 255, 0.2);
         }
     }
 }
+
 .left-bar {
     display: flex;
     align-items: center;
@@ -223,11 +236,19 @@ main {
         text-align: left;
         font-weight: bold;
         line-height: 1.25;
+        max-width: 100vw;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         transition: all 0.3s;
     }
 
     p {
         margin-top: 1rem;
+        max-width: 100vw;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         color: rgba(255, 255, 255, 0.7);
         transition: all 0.3s;
     }
@@ -305,9 +326,12 @@ a {
             height: 2.5rem;
         }
     }
-    iframe,.modal-content{
+
+    iframe,
+    .modal-content {
         max-height: 44rem !important;
     }
+
     main {
         width: initial;
 

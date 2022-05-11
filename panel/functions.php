@@ -187,10 +187,10 @@ function create_file($arrCreate)
                 }';
 
 
-                $breadcrumb = '<span><a href="/">{siteName}</a></span>
-                <span><a href="/{citySlug}">{cityName}</a></span>
-                <span><a href="/{districts}">{districtsName}</a></span>
-                <span><a class="active">{sectorName}</a></span>';
+                $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
+                <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
+                <div class="breadcrumb-text"><a href="/{districts}">{districtsName}</a></div>
+                <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
 
 
             } else if ($arrCityName !== null) {
@@ -212,9 +212,9 @@ function create_file($arrCreate)
                         "item": "https://{domain}/{citySlug}/{sectorSlug}"
                     }';
     
-                    $breadcrumb = '<span><a href="/">{siteName}</a></span>
-                    <span><a href="/{citySlug}">{cityName}</a></span>
-                    <span><a class="active">{sectorName}</a></span>';
+                    $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
+                    <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
+                    <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
                     
             } else {
 
@@ -231,8 +231,8 @@ function create_file($arrCreate)
                 }';
 
 
-                $breadcrumb = '<span><a href="/">{siteName}</a></span>
-                <span><a class="active">{sectorName}</a></span>';
+                $breadcrumb = '<div class="breadcrumb-text"><a href="/">{siteName}</a></div>
+                <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
 
             }
 
@@ -589,6 +589,7 @@ function create_site($arr)
                     "arr" => $arr,
                     "template" => "index",
                     "city-name" => $district["name"],
+                    "is-city-slug" => $city["slug"], // TODO ilçe link
                     "file-name-slug" => $city["slug"] . '/' . $districtSlug[1] . '/index'
                 ]);
 

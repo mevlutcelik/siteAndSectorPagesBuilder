@@ -294,12 +294,20 @@ main h1 {
   text-align: left;
   font-weight: bold;
   line-height: 1.25;
+  max-width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 main p {
   margin-top: 1rem;
+  max-width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: rgba(255, 255, 255, 0.7);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -393,7 +401,8 @@ a {
   .list a {
     height: 2.5rem;
   }
-  iframe, .modal-content {
+  iframe,
+  .modal-content {
     max-height: 44rem !important;
   }
   main {

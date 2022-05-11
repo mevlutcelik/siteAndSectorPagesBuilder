@@ -121,7 +121,7 @@ require_once __DIR__ . '/functions.php';
                 // Menü pozisyonu
                 $menuPosition = @$_POST["menu-position"];
                 if ($menuPosition === 'right') {
-                    $rootMenuPosition = '<style>nav{flex-direction:row-reverse;}.left-bar{left:initial;right:0;}.left-bar #closeBtn{right:initial;left:0;}</style>';
+                    $rootMenuPosition = '<style>nav{flex-direction:row-reverse;}#sideBarBtn{margin-right:0;}.left-bar{left:initial;right:0;}.left-bar #closeBtn{right:initial;left:0;}</style>';
                 } else {
                     $rootMenuPosition = '<style>nav{flex-direction:row;}.left-bar{left:0;right:initial;}.left-bar #closeBtn{right:0;left:initial;}</style>';
                 }
