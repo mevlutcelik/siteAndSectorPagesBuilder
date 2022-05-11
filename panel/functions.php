@@ -390,6 +390,13 @@ function create_file($arrCreate)
                 "item" => implode(' ', $iconItems)
             ];
 
+            $randomAuthorName = array_rand($arrCreate["arr"]["author-names"],1);
+
+            $arrCreate["arr"]["replace"][] = [
+                "variable" => "{randomAuthorName}",
+                "item" => $randomAuthorName
+            ];
+
 
             if ($arrCreate["arr"]["location-pages"] === 'yes') {
                 if ($arrCitySektors) {

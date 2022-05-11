@@ -3,6 +3,7 @@ set_time_limit(0);
 // Gerekli dosyaları require edelim
 require_once __DIR__ . '/sectors.php';
 require_once __DIR__ . '/icon-items.php';
+require_once __DIR__ . '/author-names.php';
 require_once __DIR__ . '/functions.php';
 ?>
 
@@ -122,9 +123,9 @@ require_once __DIR__ . '/functions.php';
                 // Menü pozisyonu
                 $menuPosition = @$_POST["menu-position"];
                 if ($menuPosition === 'right') {
-                    $rootMenuPosition = '<style>nav{flex-direction:row-reverse;}#sideBarBtn{margin-right:0;}.left-bar{left:initial;right:0;}.left-bar #closeBtn{right:initial;left:0;}</style>';
+                    $rootMenuPosition = '<style>nav{flex-direction:row-reverse;}nav ul{flex-direction:row-reverse;}#sideBarBtn{margin-right:0;}.left-bar{left:initial;right:0;}.left-bar #closeBtn{right:initial;left:0;}</style>';
                 } else {
-                    $rootMenuPosition = '<style>nav{flex-direction:row;}.left-bar{left:0;right:initial;}.left-bar #closeBtn{right:0;left:initial;}</style>';
+                    $rootMenuPosition = '<style>nav{flex-direction:row;}nav ul{flex-direction:row;}.left-bar{left:0;right:initial;}.left-bar #closeBtn{right:0;left:initial;}</style>';
                 }
 
 
@@ -151,6 +152,7 @@ require_once __DIR__ . '/functions.php';
                     "company-name" => $companyName,
                     "sectors" => $arrSector,
                     "icon-items" => $arrIconItems,
+                    "author-names" => $arrAuthorNames,
                     "referances" => $refLink,
                     "analytics-code" => $analyticsCode,
                     "conversion-tracking-code" => $conversionTrackingCode,

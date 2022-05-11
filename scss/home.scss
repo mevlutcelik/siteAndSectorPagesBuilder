@@ -86,24 +86,6 @@ iframe {
     }
 }
 
-// Ul -> Li
-ul {
-    li {
-        margin: 1rem 0 1rem 1rem;
-
-        &::marker {
-            color: rgba(255, 255, 255, 0.2);
-        }
-    }
-
-    ul {
-        margin-left: 1rem;
-    }
-
-    a {
-        margin-bottom: 0;
-    }
-}
 
 #overlay {
     width: 100vw;
@@ -138,6 +120,24 @@ details {
     background-color: #212529;
     z-index: 2;
     display: none;
+
+    ul {
+        li {
+            margin: 1rem 0 1rem 1rem;
+    
+            &::marker {
+                color: rgba(255, 255, 255, 0.2);
+            }
+        }
+    
+        ul {
+            margin-left: 1rem;
+        }
+    
+        a {
+            margin-bottom: 0;
+        }
+    }
 
     &.active {
         display: flex;
@@ -185,6 +185,17 @@ header {
         width: 100%;
         height: 4rem;
         padding: 0 4rem;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            li {
+                list-style: none;
+            }
+        }
 
         .links {
             display: flex;

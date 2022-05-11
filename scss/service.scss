@@ -86,24 +86,6 @@ iframe {
     }
 }
 
-// Ul -> Li
-ul {
-    li {
-        margin: 1rem 0 1rem 1rem;
-
-        &::marker {
-            color: rgba(255, 255, 255, 0.2);
-        }
-    }
-
-    ul {
-        margin-left: 1rem;
-    }
-
-    a {
-        margin-bottom: 0;
-    }
-}
 
 #overlay {
     width: 100vw;
@@ -138,10 +120,12 @@ details {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        &.city{
+
+        &.city {
             max-width: 38vw;
         }
-        &.districts{
+
+        &.districts {
             max-width: 26vw;
         }
     }
@@ -183,6 +167,24 @@ details {
     background-color: #212529;
     z-index: 2;
     display: none;
+
+    ul {
+        li {
+            margin: 1rem 0 1rem 1rem;
+
+            &::marker {
+                color: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        ul {
+            margin-left: 1rem;
+        }
+
+        a {
+            margin-bottom: 0;
+        }
+    }
 
     &.active {
         display: flex;
@@ -230,6 +232,17 @@ header {
         width: 100%;
         height: 4rem;
         padding: 0 4rem;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            li {
+                list-style: none;
+            }
+        }
 
         .links {
             display: flex;
@@ -301,7 +314,7 @@ main {
     color: #fff;
     transition: all 0.3s;
 
-    .h1-title{
+    .h1-title {
         position: relative;
     }
 
@@ -681,10 +694,12 @@ a {
             }
         }
     }
+
     .icons-item {
         width: 6rem !important;
     }
-    .h1-title{
+
+    .h1-title {
         margin-top: -5rem;
     }
 }
@@ -693,7 +708,8 @@ a {
     .icons-item {
         width: 6rem !important;
     }
-    .h1-title{
+
+    .h1-title {
         margin-top: -4rem;
     }
 }
@@ -704,7 +720,7 @@ a {
     }
 }
 
-@media all and (min-width: 440px)  {
+@media all and (min-width: 440px) {
     .icons-item {
         width: 8rem !important;
     }
