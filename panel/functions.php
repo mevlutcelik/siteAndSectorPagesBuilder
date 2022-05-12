@@ -376,10 +376,6 @@ function create_file($arrCreate)
                 "item" => $arrCreate["file-name-slug"]
             ];
             $arrCreate["arr"]["replace"][] = [
-                "variable" => "{siteName}",
-                "item" => $arrCreate["arr"]["site-name"]
-            ];
-            $arrCreate["arr"]["replace"][] = [
                 "variable" => "{domain}",
                 "item" => $arrCreate["arr"]["domain"]
             ];
@@ -470,6 +466,11 @@ function create_file($arrCreate)
         $arrCreate["arr"]["replace"][] = [
             "variable" => "{locationName}",
             "item" => $locationName
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{siteName}",
+            "item" => $arrCreate["arr"]["site-name"]
         ];
 
         $arrCreate["arr"]["replace"][] = [
