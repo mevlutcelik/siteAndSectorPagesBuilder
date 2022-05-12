@@ -195,17 +195,17 @@ function create_file($arrCreate)
                   },{
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "{cityName}"
+                    "name": "{cityName}",
                     "item": "https://{domain}/{citySlug}"
                 },{
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "{districtsName}"
+                    "name": "{districtsName}",
                     "item": "https://{domain}/{districts}"
                 },{
                     "@type": "ListItem",
                     "position": 4,
-                    "name": "{sectorName}"
+                    "name": "{sectorName}",
                     "item": "https://{domain}/{sectorSlug}.html"
                 }';
 
@@ -225,12 +225,12 @@ function create_file($arrCreate)
                       },{
                         "@type": "ListItem",
                         "position": 2,
-                        "name": "{cityName}"
+                        "name": "{cityName}",
                         "item": "https://{domain}/{citySlug}"
                     },{
                         "@type": "ListItem",
                         "position": 3,
-                        "name": "{sectorName}"
+                        "name": "{sectorName}",
                         "item": "https://{domain}/{sectorSlug}.html"
                     }';
 
