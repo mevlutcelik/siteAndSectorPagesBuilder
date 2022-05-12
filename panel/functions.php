@@ -210,10 +210,10 @@ function create_file($arrCreate)
                 }';
 
 
-                $breadcrumb = '<div class="breadcrumb-text"><a href="/">Anasayfa</a></div>
-                <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
-                <div class="breadcrumb-text"><a href="/{districts}">{districtsName}</a></div>
-                <div class="breadcrumb-text"><a href="/{districts}/{sectorSlug}" class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
+                <div class="breadcrumb-text"><a title="{cityName}" href="/{citySlug}">{cityName}</a></div>
+                <div class="breadcrumb-text"><a title="{districtsName}" href="/{districts}">{districtsName}</a></div>
+                <div class="breadcrumb-text"><a title="{sectorName}" href="/{districts}/{sectorSlug}" class="active">{sectorName}</a></div>';
 
                 $siteMapContent = '{site}';
             } else if ($arrCityName !== null) {
@@ -235,9 +235,9 @@ function create_file($arrCreate)
                         "item": "https://{domain}/{citySlug}/{sectorSlug}"
                     }';
 
-                $breadcrumb = '<div class="breadcrumb-text"><a href="/">Anasayfa</a></div>
-                    <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
-                    <div class="breadcrumb-text"><a href="/{citySlug}/{sectorSlug}" class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
+                    <div class="breadcrumb-text"><a title="{cityName}" href="/{citySlug}">{cityName}</a></div>
+                    <div class="breadcrumb-text"><a title="{sectorName}" href="/{citySlug}/{sectorSlug}" class="active">{sectorName}</a></div>';
             } else {
 
                 $breadcrumbSchema = '{
@@ -253,8 +253,8 @@ function create_file($arrCreate)
                 }';
 
 
-                $breadcrumb = '<div class="breadcrumb-text"><a href="/">Anasayfa</a></div>
-                <div class="breadcrumb-text"><a href="/{sectorSlug}" class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
+                <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}" class="active">{sectorName}</a></div>';
             }
 
             $randKM = rand(0, 150) / 100;
@@ -332,7 +332,7 @@ function create_file($arrCreate)
                         return $item["city_id"] == $arrDistrictCityId;
                     });
                     foreach ($districts as $district) {
-                        $cityLinks[] = '<li><a href="/' . explode('-', $district["slug"])[0] . '/' . explode('-', $district["slug"])[1] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($district["name"]) . '</a></li>';
+                        $cityLinks[] = '<li><a title="' . ucfirst_tr($district["name"]) . '" href="/' . explode('-', $district["slug"])[0] . '/' . explode('-', $district["slug"])[1] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($district["name"]) . '</a></li>';
                         $cityName = explode(' ', $district["full_name"])[0];
                     }
                 } else {
@@ -341,12 +341,12 @@ function create_file($arrCreate)
                             return $item["city_id"] == $arrDistrictCityId;
                         });
                         foreach ($districts as $district) {
-                            $cityLinks[] = '<li><a href="/' . $arrCitySlug . '/' . explode('-', $district["slug"])[1] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($district["name"]) . '</a></li>';
+                            $cityLinks[] = '<li><a title="' . ucfirst_tr($district["name"]) . '" href="/' . $arrCitySlug . '/' . explode('-', $district["slug"])[1] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($district["name"]) . '</a></li>';
                             $cityName = explode(' ', $district["full_name"])[0];
                         }
                     } else {
                         foreach ($dataCities as $citys) {
-                            $cityLinks[] = '<li><a href="/' . $citys["slug"] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($citys["name"]) . '</a></li>';
+                            $cityLinks[] = '<li><a title="' . ucfirst_tr($citys["name"]) . '" href="/' . $citys["slug"] . '/' . str_slug($fileName) . '.html">' . ucfirst_tr($citys["name"]) . '</a></li>';
                         }
                     }
                 }
