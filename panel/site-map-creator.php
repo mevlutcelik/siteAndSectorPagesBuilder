@@ -3,28 +3,30 @@ function siteMapCreate($arr)
 {
 
     // Varsayılan olarak template yolu
-    $siteMapXml = !isset($arr["sitemap-xml"]) ? false : $arr["sitemap-xml"];
     $xmlLinks = !isset($arr["xml-links"]) ? false : $arr["xml-links"];
     $domain = !isset($arr["domain"]) ? null : $arr["domain"];
 
+
     // SiteMap Template'i alalım
-    if(!$xmlLinks){
+    if (!$xmlLinks) {
         $siteMapTemplate = file_get_contents(__DIR__ . '/../temp/sitemap.xml');
-    }else{
+    } else {
         $siteMapTemplate = file_get_contents(__DIR__ . '/../temp/sitemap-finish.xml');
     }
 
     // SiteMap Linklerini Implode edelim
     $siteMapLinksImplode = [];
-    foreach ($arr["links"] as $siteMapLink) {
-        if (!$siteMapXml) {
+    if (!$xmlLinks) {
+        foreach ($arr["links"] as $siteMapLink) {
             $siteMapLinksImplode[] = '<url>
             <loc>' . $siteMapLink["loc"] . '</loc>
             <lastmod>' . date("c") . '</lastmod>
             <changefreq>' . $siteMapLink["changefreq"] . '</changefreq>
             <priority>' . $siteMapLink["changefreq"] . '</priority>
             </url>';
-        } else {
+        }
+    } else {
+        foreach ($arr["links"] as $siteMapLink) {
             $siteMapLinksImplode[] = '<sitemap>
             <loc>http://' . $domain . '/sitemaps/' . $siteMapLink["loc"] . '</loc>
             <lastmod>' . date("c") . '</lastmod>
