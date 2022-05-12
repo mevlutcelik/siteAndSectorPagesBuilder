@@ -188,10 +188,10 @@ function create_file($arrCreate)
                 }';
 
 
-                $breadcrumb = '<div class="breadcrumb-text districts"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 6.453l9 8.375v9.172h-6v-6h-6v6h-6v-9.172l9-8.375zm12 5.695l-12-11.148-12 11.133 1.361 1.465 10.639-9.868 10.639 9.883 1.361-1.465z"/></svg></a></div>
-                <div class="breadcrumb-text districts"><a href="/{citySlug}">{cityName}</a></div>
-                <div class="breadcrumb-text districts"><a href="/{districts}">{districtsName}</a></div>
-                <div class="breadcrumb-text districts"><a class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text"><a href="/">Anasayfa</a></div>
+                <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
+                <div class="breadcrumb-text"><a href="/{districts}">{districtsName}</a></div>
+                <div class="breadcrumb-text"><a href="/{districts}/{sectorSlug}" class="active">{sectorName}</a></div>';
 
                 $siteMapContent = '{site}';
             } else if ($arrCityName !== null) {
@@ -213,9 +213,9 @@ function create_file($arrCreate)
                         "item": "https://{domain}/{citySlug}/{sectorSlug}"
                     }';
 
-                $breadcrumb = '<div class="breadcrumb-text city"><a href="/">Anasayfa</a></div>
-                    <div class="breadcrumb-text city"><a href="/{citySlug}">{cityName}</a></div>
-                    <div class="breadcrumb-text city"><a class="active">{sectorName}</a></div>';
+                $breadcrumb = '<div class="breadcrumb-text"><a href="/">Anasayfa</a></div>
+                    <div class="breadcrumb-text"><a href="/{citySlug}">{cityName}</a></div>
+                    <div class="breadcrumb-text"><a href="/{citySlug}/{sectorSlug}" class="active">{sectorName}</a></div>';
             } else {
 
                 $breadcrumbSchema = '{
@@ -232,7 +232,7 @@ function create_file($arrCreate)
 
 
                 $breadcrumb = '<div class="breadcrumb-text"><a href="/">Anasayfa</a></div>
-                <div class="breadcrumb-text"><a class="active">{sectorName}</a></div>';
+                <div class="breadcrumb-text"><a href="/{sectorSlug}" class="active">{sectorName}</a></div>';
             }
 
             $randKM = rand(0, 150) / 100;

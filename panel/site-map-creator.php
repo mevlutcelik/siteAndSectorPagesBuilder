@@ -33,7 +33,7 @@ function siteMapCreate($arr)
     $siteMapTemplate = str_replace('{siteMapUrl}', $siteMapLinksImplodeResult, $siteMapTemplate);
 
     // SiteMap dosyamızı yazalım
-    if (!$$xmlLinks) {
+    if (!$xmlLinks) {
         $siteMapCreate = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/sitemaps/' . $arr["file-name"] . '-sitemap.xml', $siteMapTemplate);
     } else {
         $siteMapCreate = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/sitemap.xml', $siteMapTemplate);

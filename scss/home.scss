@@ -251,19 +251,11 @@ main {
         text-align: left;
         font-weight: bold;
         line-height: 1.25;
-        max-width: 100vw;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
         transition: all 0.3s;
     }
 
     p {
         margin-top: 1rem;
-        max-width: 100vw;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
         color: rgba(255, 255, 255, 0.7);
         transition: all 0.3s;
     }
