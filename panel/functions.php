@@ -277,7 +277,7 @@ function create_file($arrCreate)
                 if ($isCitySlug !== null) {
                     $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . $isCitySlug . '/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
                 } else {
-                    if($arrCityName !== 'Merkez'){
+                    if ($arrCityName !== 'Merkez') {
                         $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
                     }
                 }
@@ -315,6 +315,16 @@ function create_file($arrCreate)
         $arrCreate["arr"]["replace"][] = [
             "variable" => "{navLinksHome}",
             "item" => $implodeLinksHome
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{homeTitle}",
+            "item" => $homeTitle
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{homeDesc}",
+            "item" => $homeDesc
         ];
 
         if ($arrCreateSectorFiles) {
@@ -465,16 +475,6 @@ function create_file($arrCreate)
         $arrCreate["arr"]["replace"][] = [
             "variable" => "{companyName}",
             "item" => $arrCreate["arr"]["company-name"]
-        ];
-
-        $arrCreate["arr"]["replace"][] = [
-            "variable" => "{homeTitle}",
-            "item" => $homeTitle
-        ];
-
-        $arrCreate["arr"]["replace"][] = [
-            "variable" => "{homeDesc}",
-            "item" => $homeDesc
         ];
 
         $arrCreate["arr"]["replace"][] = [
@@ -806,7 +806,7 @@ function create_site($arr)
 
     $robotsTxtContent = 'User-agent: *
 Allow: /
-Sitemap: https://'. $arr["domain"] .'/sitemap.xml';
+Sitemap: https://' . $arr["domain"] . '/sitemap.xml';
 
     $createRobotsTxt = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/robots.txt', $robotsTxtContent);
 

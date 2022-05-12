@@ -137,19 +137,19 @@ details summary::marker {
 .breadcrumb::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-  background: var(--gradient-dark, #212529);
+  background: transparent;
 }
 
 .breadcrumb::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
 }
 
 .breadcrumb::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
 }
 
 .breadcrumb::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: transparent;
 }
 
 .breadcrumb a {
