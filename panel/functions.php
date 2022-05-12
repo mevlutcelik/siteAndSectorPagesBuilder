@@ -206,16 +206,15 @@ function create_file($arrCreate)
                     "@type": "ListItem",
                     "position": 4,
                     "name": "{sectorName}"
-                    "item": "https://{domain}/{districts}/{sectorSlug}"
+                    "item": "https://{domain}/{sectorSlug}"
                 }';
 
 
                 $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
                 <div class="breadcrumb-text"><a title="{cityName}" href="/{citySlug}">{cityName}</a></div>
                 <div class="breadcrumb-text"><a title="{districtsName}" href="/{districts}">{districtsName}</a></div>
-                <div class="breadcrumb-text"><a title="{sectorName}" href="/{districts}/{sectorSlug}" class="active">{sectorName}</a></div>';
+                <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}" class="active">{sectorName}</a></div>';
 
-                $siteMapContent = '{site}';
             } else if ($arrCityName !== null) {
 
                 $breadcrumbSchema = '{
@@ -232,12 +231,12 @@ function create_file($arrCreate)
                         "@type": "ListItem",
                         "position": 3,
                         "name": "{sectorName}"
-                        "item": "https://{domain}/{citySlug}/{sectorSlug}"
+                        "item": "https://{domain}/{sectorSlug}"
                     }';
 
                 $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
                     <div class="breadcrumb-text"><a title="{cityName}" href="/{citySlug}">{cityName}</a></div>
-                    <div class="breadcrumb-text"><a title="{sectorName}" href="/{citySlug}/{sectorSlug}" class="active">{sectorName}</a></div>';
+                    <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}" class="active">{sectorName}</a></div>';
             } else {
 
                 $breadcrumbSchema = '{
