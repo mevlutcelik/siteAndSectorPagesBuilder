@@ -206,14 +206,14 @@ function create_file($arrCreate)
                     "@type": "ListItem",
                     "position": 4,
                     "name": "{sectorName}"
-                    "item": "https://{domain}/{sectorSlug}"
+                    "item": "https://{domain}/{sectorSlug}.html"
                 }';
 
 
                 $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
                 <div class="breadcrumb-text"><a title="{cityName}" href="/{citySlug}">{cityName}</a></div>
                 <div class="breadcrumb-text"><a title="{districtsName}" href="/{districts}">{districtsName}</a></div>
-                <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}" class="active">{sectorName}</a></div>';
+                <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}.html" class="active">{sectorName}</a></div>';
 
             } else if ($arrCityName !== null) {
 
@@ -231,12 +231,12 @@ function create_file($arrCreate)
                         "@type": "ListItem",
                         "position": 3,
                         "name": "{sectorName}"
-                        "item": "https://{domain}/{sectorSlug}"
+                        "item": "https://{domain}/{sectorSlug}.html"
                     }';
 
                 $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
                     <div class="breadcrumb-text"><a title="{cityName}" href="/{citySlug}">{cityName}</a></div>
-                    <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}" class="active">{sectorName}</a></div>';
+                    <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}.html" class="active">{sectorName}</a></div>';
             } else {
 
                 $breadcrumbSchema = '{
@@ -248,12 +248,12 @@ function create_file($arrCreate)
                     "@type": "ListItem",
                     "position": 2,
                     "name": "{sectorName}"
-                    "item": "https://{domain}/{sectorSlug}"
+                    "item": "https://{domain}/{sectorSlug}.html"
                 }';
 
 
                 $breadcrumb = '<div class="breadcrumb-text"><a title="Anasayfa" href="/">Anasayfa</a></div>
-                <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}" class="active">{sectorName}</a></div>';
+                <div class="breadcrumb-text"><a title="{sectorName}" href="/{sectorSlug}.html" class="active">{sectorName}</a></div>';
             }
 
             $randKM = rand(0, 150) / 100;
