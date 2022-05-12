@@ -143,6 +143,19 @@ function create_file($arrCreate)
     $fileName = !isset($arrCreate["file-name"]) ? null : $arrCreate["file-name"];
 
 
+    $homeTitle = '';
+    $homeDesc = '{siteName} -';
+    $randomTitle = array_rand($arrCreate["arr"]["words-for-meta"], 2);
+    $randomDesc = array_rand($arrCreate["arr"]["words-for-meta"], 8);
+    foreach ($randomTitle as $words) {
+        $homeTitle .= ' ' . $arrCreate["arr"]["words-for-meta"][$words] . ' ';
+    };
+    foreach ($randomDesc as $words) {
+        $homeDesc .= ' ' . $arrCreate["arr"]["words-for-meta"][$words] . ' ';
+    };
+    $homeTitle .= '- {siteName}';
+
+
     // Dosyayı kontrol edelim eğer yoksa oluşturalım
     if (!file_exists(getFile($arrCreate["file-name-slug"] . '.html', $arrCreate["arr"]["domain-replace"]))) {
 
@@ -159,8 +172,17 @@ function create_file($arrCreate)
         // Sektör dosyası oluşacaksa sektör bilgisini al
         if ($arrCreateSectorFiles) {
             $sectorSlug = '';
-            $sectorTitle = $arrCreate["arr"]["sector-title"];
-            $sectorDesc = $arrCreate["arr"]["sector-desc"];
+
+            $sectorTitle = '{sectorName} -';
+            $sectorDesc = '{sectorName} -';
+            $randomSector = array_rand($arrCreate["arr"]["words-for-meta"], 2);
+            $randomSectorDesc = array_rand($arrCreate["arr"]["words-for-meta"], 8);
+            foreach ($randomSector as $words) {
+                $sectorTitle .= ' ' . $arrCreate["arr"]["words-for-meta"][$words] . ' ';
+            };
+            foreach ($randomSectorDesc as $words) {
+                $sectorDesc .= ' ' . $arrCreate["arr"]["words-for-meta"][$words] . ' ';
+            };
 
             if ($arrDistrict !== null) {
 
@@ -255,7 +277,9 @@ function create_file($arrCreate)
                 if ($isCitySlug !== null) {
                     $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . $isCitySlug . '/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
                 } else {
-                    $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                    if($arrCityName !== 'Merkez'){
+                        $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                    }
                 }
             } else {
                 $sectorLinks[] = '<a title="' . $sector . '" href="/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
@@ -444,6 +468,16 @@ function create_file($arrCreate)
         ];
 
         $arrCreate["arr"]["replace"][] = [
+            "variable" => "{homeTitle}",
+            "item" => $homeTitle
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
+            "variable" => "{homeDesc}",
+            "item" => $homeDesc
+        ];
+
+        $arrCreate["arr"]["replace"][] = [
             "variable" => "{faviconPath}",
             "item" => '/favicon.png'
         ];
@@ -468,7 +502,7 @@ function create_file($arrCreate)
             $filePath = $arrCreate["file-name-slug"];
         }
 
-        if($arrDistrictName !== 'Merkez'){
+        if ($arrDistrictName !== 'Merkez') {
             $file = file_put_contents(getFile($filePath . '.html', $arrCreate["arr"]["domain-replace"]), $template);
             if (!$file) {
                 msg($arrCreate["file-name-slug"] . '.html dosyası oluşurken bir hata oluştu!');
@@ -479,7 +513,6 @@ function create_file($arrCreate)
         if (!file_exists(__DIR__ . '/../sites/' . $arrCreate["arr"]["domain-replace"] . '/sitemaps')) {
             mkdir(__DIR__ . '/../sites/' . $arrCreate["arr"]["domain-replace"] . '/sitemaps', 0777, true);
         }
-
     }
 }
 
@@ -768,14 +801,14 @@ function create_site($arr)
         "xml-links" => true
     ]);
 
-    
+
     $robotsTxtContent = 'User-agent: *
 Allow: /
 Sitemap: /sitemap.xml';
 
-    $createRobotsTxt = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/robots.txt' , $robotsTxtContent);
+    $createRobotsTxt = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/robots.txt', $robotsTxtContent);
 
-    if(!$createRobotsTxt){
+    if (!$createRobotsTxt) {
         msg('Robots.txt dosyası oluşturulurken bir hata oluştu!');
     }
 

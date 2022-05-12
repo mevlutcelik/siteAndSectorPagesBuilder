@@ -52,28 +52,6 @@ require_once __DIR__ . '/functions.php';
             $color = @$_POST["color"];
             $menuPosition = @$_POST["menu-position"];
             $ctaText = ucfirst_tr(mx_filter(@$_POST["cta-text"], false));
-
-            $homeTitle = '';
-            $homeDesc = '{siteName} -';
-            $sectorTitle = '{sectorName} -';
-            $sectorDesc = '{sectorName} -';
-            $randomTitle = array_rand($arrWords, 2);
-            $randomDesc = array_rand($arrWords, 8);
-            $randomSector = array_rand($arrWords, 2);
-            $randomSectorDesc = array_rand($arrWords, 8);
-            foreach($randomTitle as $words){
-                $homeTitle .= ' ' . $arrWords[$words] . ' ';
-            };
-            foreach($randomDesc as $words){
-                $homeDesc .= ' ' . $arrWords[$words] . ' ';
-            };
-            foreach($randomSector as $words){
-                $sectorTitle .= ' ' . $arrWords[$words] . ' ';
-            };
-            foreach($randomSectorDesc as $words){
-                $sectorDesc .= ' ' . $arrWords[$words] . ' ';
-            };
-            $homeTitle .= '- {siteName}';
             //$homeTitle = mx_filter(@$_POST["home-title"], false);
             //$homeDesc = mx_filter(@$_POST["home-desc"], false);
             //$sectorTitle = mx_filter(@$_POST["sector-title"], false);
@@ -165,10 +143,11 @@ require_once __DIR__ . '/functions.php';
                     "root-colors" => $rootColors,
                     "menu-position" => $menuPosition,
                     "cta-text" => $ctaText,
-                    "home-title" => $homeTitle,
+                    "words-for-meta" => $arrWords,
+                    /*"home-title" => $homeTitle,
                     "home-desc" => $homeDesc,
                     "sector-title" => $sectorTitle,
-                    "sector-desc" => $sectorDesc,
+                    "sector-desc" => $sectorDesc,*/
                     "location-pages" => $locationPages,
                     "favicon" => $favicon,
                     "address" => $address,
@@ -184,12 +163,6 @@ require_once __DIR__ . '/functions.php';
                     // Replace olacak değişkenleri gönderelim
                     "replace" => [
                         [
-                            "variable" => "{homeTitle}",
-                            "item" => $homeTitle
-                        ], [
-                            "variable" => "{homeDesc}",
-                            "item" => $homeDesc
-                        ], [
                             "variable" => "{rootColor}",
                             "item" => $rootColors
                         ], [
