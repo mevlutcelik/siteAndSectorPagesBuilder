@@ -589,6 +589,7 @@ function create_site($arr)
     // SiteMap linklerini belirleyelim
     $siteMapLinks = [];
     $siteMapSectorLinks = [];
+    $siteMapXmlLinks = [];
 
     // Şehir ve İlçe Json dosyalarını alalım
     $getCities = file_get_contents('../json/cities.json');
@@ -624,6 +625,9 @@ function create_site($arr)
 
             // Şehrin linkini ekleyelim
             $siteMapCityLinks[] = $city["slug"];
+            $siteMapXmlLinks[] = [
+                "loc" => $city["slug"] . '-sitemap.xml'
+            ];
             $siteMapSpecialCityLinks[] = $city["slug"];
 
 
@@ -783,28 +787,30 @@ function create_site($arr)
     } else {
         $arrSiteMapCityLinks = $siteMapCityLinks;
     }
-    $siteMapXmlLinks = [
-        ["xml-links" => "index-sitemap.xml"]
+
+    $siteMapXmlLinks[] = [
+        ["loc" => "index-sitemap.xml"]
     ];
+
     foreach ($arrSiteMapCityLinks as $cityLinks) {
         $siteMapLinks[] = [
             "loc" => "https://" . $arr["domain"] . "/" . $cityLinks . "/index.html",
             "changefreq" => "monthly",
             "priority" => "0.9"
         ];
-        $siteMapXmlLinks[] = ["xml-links" => $cityLinks . '-sitemap.xml'];
     }
 
     siteMapCreate([
-        "links" => $siteMapLinks,
+        "links" => $siteMapXmlLinks,
         "domain-replace" => $arr["domain-replace"],
+        "domain" => $arr["domain"],
         "xml-links" => true
     ]);
 
 
     $robotsTxtContent = 'User-agent: *
 Allow: /
-Sitemap: /sitemap.xml';
+Sitemap: '. $arr["domain"] .'/sitemap.xml';
 
     $createRobotsTxt = file_put_contents(__DIR__ . '/../sites/' . $arr["domain-replace"] . '/robots.txt', $robotsTxtContent);
 
