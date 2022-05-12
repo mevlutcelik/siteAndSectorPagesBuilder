@@ -28,7 +28,7 @@ function siteMapCreate($arr)
     } else {
         foreach ($arr["links"] as $siteMapLink) {
             $siteMapLinksImplode[] = '<sitemap>
-            <loc>http://' . $domain . '/sitemaps/' . $siteMapLink["loc"] . '</loc>
+            <loc>https://' . $domain . '/sitemaps/' . $siteMapLink["loc"] . '</loc>
             <lastmod>' . date("c") . '</lastmod>
             </sitemap>';
         }
