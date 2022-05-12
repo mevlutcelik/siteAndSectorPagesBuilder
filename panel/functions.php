@@ -247,7 +247,7 @@ function create_file($arrCreate)
                   },{
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "{sectorName}"
+                    "name": "{sectorName}",
                     "item": "https://{domain}/{sectorSlug}.html"
                 }';
 
@@ -274,7 +274,9 @@ function create_file($arrCreate)
             }
             if ($arrCityName !== null) {
                 if ($isCitySlug !== null) {
-                    $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . $isCitySlug . '/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                    if ($arrCityName !== 'Merkez') {
+                        $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . $isCitySlug . '/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
+                    }
                 } else {
                     if ($arrCityName !== 'Merkez') {
                         $sectorLinks[] = '<a title="' . $arrCityName . ' ' . $sector . '" href="/' . str_slug($arrCityName) . '/' . str_slug($sector) . '.html" class="' . $sectorActive . '">' . $sector . '</a>' . $cityLinks;
