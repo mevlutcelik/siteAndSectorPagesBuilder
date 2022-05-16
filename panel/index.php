@@ -137,7 +137,7 @@ require_once __DIR__ . '/functions.php';
                     "site-name" => $siteName,
                     "domain" => $domain,
                     "domain-replace" => $domainReplace,
-                    "phone" => '0' . $phone,
+                    "phone" => $phone,
                     "formatted-phone" => $formattedPhone,
                     "color" => $color,
                     "root-colors" => $rootColors,
@@ -191,7 +191,7 @@ require_once __DIR__ . '/functions.php';
                             "item" => $address
                         ], [
                             "variable" => "{phone}",
-                            "item" => $phone
+                            "item" => '0' . $phone
                         ], [
                             "variable" => "{formattedPhone}",
                             "item" => $formattedPhone
